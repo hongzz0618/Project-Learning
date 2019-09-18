@@ -55,15 +55,15 @@ export default class Producto extends React.Component {
             .catch(err => console.log(err));
 
 
-        fetch(API + "/likes/1/count")
-            .then(datos => datos.json())
-            .then(like => this.setState({ like: like.data.cuantos }))
-            .catch(err => console.log(err));
+        // fetch(API + "/likes/1/count")
+        //     .then(datos => datos.json())
+        //     .then(like => this.setState({ like: like.data.cuantos }))
+        //     .catch(err => console.log(err));
 
-        fetch(API + "/comentario/1/count")
-            .then(datos => datos.json())
-            .then(comentario => this.setState({ comentario: comentario.data.cuantos }))
-            .catch(err => console.log(err));
+        // fetch(API + "/comentario/1/count")
+        //     .then(datos => datos.json())
+        //     .then(comentario => this.setState({ comentario: comentario.data.cuantos }))
+        //     .catch(err => console.log(err));
 
     }
 
@@ -75,7 +75,7 @@ export default class Producto extends React.Component {
         let bbdd = this.state.publicacion.map(el => <>
 
 
-            <div key={el.idPublicacion} className="producto" ><div><i className="far fa-heart corazon" onClick={() => this.insertLike(el.idPublicacion)} onChange={this.handleInputChange}>{this.state.like}</i></div>
+            <div key={el.idPublicacion} className="producto" ><div><i className="far fa-heart corazon" onClick={() => this.insertLike(el.idPublicacion)} onChange={this.handleInputChange}>{el.numLikes}</i></div>
                 <NavLink to={"/datos_bbdd/" + el.idPublicacion}>
                     <center><div>{el.file ? <img src={'http://localhost:3000/img/' + el.file} alt="xx" /> : "No foto"} </div>  <h3>{el.nombre_ES}</h3><p>{el.precio}</p>
 
@@ -96,7 +96,7 @@ export default class Producto extends React.Component {
                             <label for="radio5">★</label>
 
                         </div> */}
-                            <p className="coment"> ({this.state.comentario})</p>
+                            <p className="coment"> ({el.numComent})</p>
                         </form>
                     </center>
 

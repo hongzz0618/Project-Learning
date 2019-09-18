@@ -35,7 +35,7 @@ const upload = multer({ storage: storage }).single('file');
 router.get('/', (req, res, next) => {
 
     console.log("---------------------------")
-    model.publicacion.findAll()
+    model.publicacionx.findAll()
         .then(lista => res.json({ ok: true, data: lista }))
         .catch(err => res.json({ ok: false, error: err }));
 });

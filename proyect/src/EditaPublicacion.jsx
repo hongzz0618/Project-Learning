@@ -108,7 +108,7 @@ class EditaPublicacion extends Component {
         }
 
         if (this.state.toList) {
-            return <Redirect to="/" />
+            return <Redirect to="/producto" />
         }
 
 
