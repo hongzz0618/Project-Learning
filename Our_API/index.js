@@ -9,6 +9,7 @@ const likesRouter = require('./routes/likes-controller.js');
 const app = express();
 const logger = require('morgan');
 const cors = require('cors');
+app.use("/img", express.static('uploads'));
 app.use(logger('dev')); //muestra en consola las peticiones Get, Post... recibidas
 
 

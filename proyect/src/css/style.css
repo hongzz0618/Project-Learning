@@ -1,0 +1,33 @@
+.gray{
+    background-color: gray;
+}
+.red{
+    background-color: red;
+}
+.green{
+    background-color: green;
+}
+.blue{
+    background-color: blue;
+}
+.bici{
+    background-image: url("https://fabricbike.com/123-large_default/fixie-original.jpg");
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+.coche{
+    background-image: url("https://www.ecestaticos.com/imagestatic/clipping/677/f1e/677f1ea2b14769690e8a2cff0eb95428/llevo-a-arreglar-un-coche-de-lujo-asi-le-tomaron-el-pelo-los-mecanicos.jpg?mtime=1556020831");
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+.moto{
+    background-image: url("https://www.motosnuñezmotor.com/ksr-moto-grs-125-blanca_pic211112ni0t0.jpg");
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.bus{
+    background-image: url("https://incalake.com/galeria/admin/short-slider/BUSES/TITICACA-BOLIVIA/titicaca-bolivia-bus.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+}

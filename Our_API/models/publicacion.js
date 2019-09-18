@@ -7,13 +7,18 @@ module.exports = (sequelize, DataTypes) => {
             primaryKey: true,
             autoIncrement: true
         },
-        nombre: DataTypes.STRING,
+        nombre_ES: DataTypes.STRING,
+        nombre_EN: DataTypes.STRING,
+        nombre_CH: DataTypes.STRING,
         precio: DataTypes.STRING,
-        info: DataTypes.STRING,
         Usuario_idUsuario: DataTypes.INTEGER,
-        img: DataTypes.STRING,
+        file: DataTypes.STRING,
         ubicacion_latitud: DataTypes.STRING,
         ubicacion_longitud: DataTypes.STRING,
+        Info_ES: DataTypes.STRING,
+        Info_EN: DataTypes.STRING,
+        Info_CH: DataTypes.STRING,
+        
         
     }, { tableName: 'publicacion', timestamps: false });
     return Publicacion;

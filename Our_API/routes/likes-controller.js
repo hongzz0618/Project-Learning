@@ -20,6 +20,13 @@ router.all('/:xxx', (req,res,next) => {
     next();
 })
 
+router.post('/', (req, res, next) => {
+    console.log(req.body)
+    model.likes.create(req.body)
+    .then(elemento => res.json({ ok: true, data: elemento }))
+    .catch(err => res.json({ ok: false, error: err }));
+});
+
 router.get('/', (req, res, next) => {
     model.likes.findAll()
         .then(lista => res.json({ ok: true, data: lista }))
@@ -46,12 +53,6 @@ router.get('/:id/count', (req, res, next) => {
 });
 
 
-router.post('/', (req, res, next) => {
-    console.log(req.body)
-    model.likes.create(req.body)
-    .then(elemento => res.json({ ok: true, data: elemento }))
-    .catch(err => res.json({ ok: false, error: err }));
-});
 
 router.put('/:id', (req, res, next) => {
     let idLike = req.params.id;
