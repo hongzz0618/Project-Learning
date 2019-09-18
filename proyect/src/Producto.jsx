@@ -10,7 +10,8 @@ export default class Producto extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            publicacion: [], like: 0, comentario: 0
+            publicacion: [], like: 0, comentario: 0,
+            desactivados: []
         };
         this.loadData = this.loadData.bind(this);
         this.insertLike = this.insertLike.bind(this);
@@ -32,6 +33,13 @@ export default class Producto extends React.Component {
 
 
     insertLike(id) {
+
+        if (this.state.desactivados.indexOf(id)!==-1) {
+            return;
+        }
+        
+        this.setState({desactivados: [...this.state.desactivados, id]});
+
         let contacto = {
 
             Publicacion_idPublicacion: id,
