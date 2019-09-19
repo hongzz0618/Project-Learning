@@ -87,7 +87,7 @@ class NovaPublicacio extends Component {
 
 
                     <Row>
-                        <Col>Nova Publicacio</Col>
+                        <Col>Nueva publicacion</Col>
                         <Col>
                             <span className="float-right">
                                 <Button type="button" onClick={this.tornar} className='' size='sm' color="danger" >{"Sortir sense desar"}</Button>
