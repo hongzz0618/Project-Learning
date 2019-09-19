@@ -97,7 +97,7 @@ export default class datos_bbdd extends React.Component {
             return <Redirect to={"/edit_publicacion/" + this.state.aEditar} />
         }
         if (this.state.toList) {
-            return <Redirect to="/" />
+            return <Redirect to="/producto" />
         }
         let datosComent = this.state.coment.map(el => <div>{el.comentario}</div>);
         console.log(this.state.coment);

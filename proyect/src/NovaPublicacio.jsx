@@ -77,7 +77,7 @@ class NovaPublicacio extends Component {
         if (this.state.loading) return <h3>Cargando datos...</h3>;
 
         if (this.state.toList) {
-            return <Redirect to="/" />
+            return <Redirect to="/producto" />
         }
 
 
