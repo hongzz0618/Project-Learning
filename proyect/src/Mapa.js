@@ -1,6 +1,13 @@
 import React from 'react';
 import { GoogleMap, withScriptjs, withGoogleMap, Marker, InfoWindow} from "react-google-maps";
 
+
+const mapa = Map;
+
+const REACT_APP_GOOGLE_KEY = "AIzaSyC4g4B7cWdRTVvNkHJ8TjLZBlvr5IK-GtQ";
+
+ 
+
 function seleccion(e, s){
     // console.log(e.latLng.toJSON())
     s(e);
@@ -31,7 +38,7 @@ function Map(props) {
                     }}
                     
                 />
-            ))}
+            ))} 
 
             {selectedItem && !s &&(
                 <InfoWindow
@@ -54,12 +61,8 @@ function Map(props) {
     );
 }
 
-const mapa = Map;
-
 const WrappedMap = withScriptjs(withGoogleMap(mapa));
-const REACT_APP_GOOGLE_KEY = "AIzaSyC4g4B7cWdRTVvNkHJ8TjLZBlvr5IK-GtQ";
 
- 
 
 export default class Mapa extends React.Component {
 
@@ -69,6 +72,7 @@ export default class Mapa extends React.Component {
             coordenadas : {lat:0,lng:0}
         }
 
+        this.iniPos = this.iniPos.bind(this);
         this.iniPos();
     }
 
@@ -87,6 +91,8 @@ export default class Mapa extends React.Component {
     }
 
     render() {
+
+        const url = `https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=${REACT_APP_GOOGLE_KEY}`;
         
         return (
             <div style={{ height: this.props.altura, width: this.props.anchura }}>
@@ -95,13 +101,10 @@ export default class Mapa extends React.Component {
                     selector={this.props.selector}
                     datos = {this.props.datos}
                     posicion = {this.state.coordenadas}
-                    googleMapURL={`https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=
-            ${REACT_APP_GOOGLE_KEY}`}
+                    googleMapURL={url}
                     loadingElement={<div style={{ height: '100%' }} />}
                     containerElement={<div style={{ height: '100%' }} />}
                     mapElement={<div style={{ height: '100%' }} />}
-
-
                 />
             </div>
         );
