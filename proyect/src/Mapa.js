@@ -1,5 +1,9 @@
 import React from 'react';
 import { GoogleMap, withScriptjs, withGoogleMap, Marker, InfoWindow} from "react-google-maps";
+import { Link } from "react-router-dom";
+import './paginaPrincipal.css';
+
+import { Container, Row, Col } from 'reactstrap';
 
 
 const mapa = Map;
@@ -20,6 +24,14 @@ function Map(props) {
     const p = props.posicion;
     const s = props.selector;
     const [selectedItem, setSelectedItem] = React.useState(null);
+    const  MapOptions = {
+        zoomControl: true,
+        mapTypeControl: false,
+        scaleControl: true,
+        streetViewControl: true,
+        rotateControl: true,
+        fullscreenControl: false
+    };
     
 
     return (
@@ -27,6 +39,8 @@ function Map(props) {
         onClick={e => {if(s) seleccion(e, selecCoords)}}
             defaultCenter={p}
             defaultZoom={10}
+            defaultOptions={MapOptions}
+ 
         >
 
             {datos.map((el) => (
@@ -52,6 +66,7 @@ function Map(props) {
                 >
                     <div>
                         <h2>{selectedItem.nombre_ES}</h2>
+                        <Link to={'/datos_bbdd/'+selectedItem.idPublicacion} className="btn btn-danger" >Ver más</Link>
                         
                     </div>
                 </InfoWindow>
@@ -95,6 +110,8 @@ export default class Mapa extends React.Component {
         const url = `https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=${REACT_APP_GOOGLE_KEY}`;
         
         return (
+            <>
+            <Row className="cajaPrincipalPrincipal" style={{margin:'0px'}}>
             <div style={{ height: this.props.altura, width: this.props.anchura }}>
                 <WrappedMap
                     selecCoords={this.props.coordenadas}
@@ -103,10 +120,13 @@ export default class Mapa extends React.Component {
                     posicion = {this.state.coordenadas}
                     googleMapURL={url}
                     loadingElement={<div style={{ height: '100%' }} />}
-                    containerElement={<div style={{ height: '100%' }} />}
+                    containerElement={<div style={{ height: '100vh' }} />}
                     mapElement={<div style={{ height: '100%' }} />}
+                    
                 />
             </div>
+            </Row>
+            </>
         );
     }
 }
