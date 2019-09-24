@@ -178,7 +178,7 @@ tornar() {
 
                         <Col sm="6">
                             <FormGroup>
-                                <Label for="nombre_ESInput" className="textoPublicacion"><Translate id="global.nombrePublicacion" /></Label>
+                                <Label for="nombre_ESInput" className="textoPublicacion"><Translate id="global.nombreEspañolPublicacion" /></Label>
                                 <Input type="text" name="nombre_ES" id="nombre_ESInput"
                                     value={this.state.nombre_ES}
                                     onChange={this.handleInputChange} required />
@@ -187,7 +187,7 @@ tornar() {
 
                         <Col sm="6">
                             <FormGroup>
-                                <Label for="nombre_ENInput" className="textoPublicacion"><Translate id="global.nombrePublicacion" /></Label>
+                                <Label for="nombre_ENInput" className="textoPublicacion"><Translate id="global.nombreInglesPublicacion" /></Label>
                                 <Input type="text" name="nombre_EN" id="nombre_ENInput"
                                     value={this.state.nombre_EN}
                                     onChange={this.handleInputChange} required />
@@ -195,7 +195,7 @@ tornar() {
                         </Col>
                         <Col sm="6">
                             <FormGroup>
-                                <Label for="nombre_CHInput" className="textoPublicacion"><Translate id="global.nombrePublicacion" /></Label>
+                                <Label for="nombre_CHInput" className="textoPublicacion"><Translate id="global.nombreChinoPublicacion" /></Label>
                                 <Input type="text" name="nombre_CH" id="nombre_CHInput"
                                     value={this.state.nombre_CH}
                                     onChange={this.handleInputChange} required />
@@ -213,7 +213,7 @@ tornar() {
                      
                         <Col sm="6">
                             <FormGroup>
-                                <Label for="Info_ESInput" className="textoPublicacion"><Translate id="global.informacionPublicacion" /></Label>
+                                <Label for="Info_ESInput" className="textoPublicacion"><Translate id="global.informacionEspañolPublicacion" /></Label>
                                 <Input type="text" name="Info_ES" id="Info_ESInput"
                                     value={this.state.Info_ES}
                                     onChange={this.handleInputChange} />
@@ -222,7 +222,7 @@ tornar() {
 
                         <Col sm="6">
                             <FormGroup>
-                                <Label for="Info_ENInput" className="textoPublicacion"><Translate id="global.informacionPublicacion" /></Label>
+                                <Label for="Info_ENInput" className="textoPublicacion"><Translate id="global.informacionInglesPublicacion" /></Label>
                                 <Input type="text" name="Info_EN" id="Info_ENInput"
                                     value={this.state.Info_EN}
                                     onChange={this.handleInputChange} />
@@ -231,7 +231,7 @@ tornar() {
 
                         <Col sm="6">
                             <FormGroup>
-                                <Label for="Info_CHInput" className="textoPublicacion"><Translate id="global.informacionPublicacion" /></Label>
+                                <Label for="Info_CHInput" className="textoPublicacion"><Translate id="global.informacionChinoPublicacion" /></Label>
                                 <Input type="text" name="Info_CH" id="Info_CHInput"
                                     value={this.state.Info_CH}
                                     onChange={this.handleInputChange} />
