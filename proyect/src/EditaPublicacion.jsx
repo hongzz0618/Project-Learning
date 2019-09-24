@@ -4,6 +4,10 @@ import { Redirect } from 'react-router-dom';
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import { Row, Col } from 'reactstrap';
 import axios from 'axios';
+import "./estilosBotonesIdiomas.css";
+import "./formularioNuevaPublicacion.css";
+import "./estilosBotonesIdiomas.css";
+import { Translate, withLocalize } from "react-localize-redux";
 
 
 const API = "http://localhost:3000/api";
@@ -90,11 +94,28 @@ class EditaPublicacion extends Component {
     }
 
 
-    tornar() {
-        this.setState({ toList: true });
+/* pestaña para que avise si quiere salir sin guardar*/
+tornar() {
+    let mensaje;
+    switch (this.props.activeLanguage.code) {
+        case "es":
+            mensaje = "¿Salir sin guardar?"
+            break;
+        case "en":
+            mensaje = "¿Exit without save?"
+            break;
+
+        case "ch":
+            mensaje = "退出而不保存?"
+            break;
+
+            default:
+            break;
     }
+    let resultado = window.confirm(mensaje);
+    if (resultado===true){this.setState({ toList: true })}
 
-
+}
     render() {
 
 
@@ -114,15 +135,15 @@ class EditaPublicacion extends Component {
 
         return (
             <>
-                <Form onSubmit={this.submit}>
+                <Form className="formPublicacion" onSubmit={this.submit}>
 
                     <Row>
-                        <Col>Editar contacte</Col>
+                        <Col><h3 className="tituloPublicacion"><Translate id="global.editarPublicacion" /></h3></Col>
                         <Col>
                             <span className="float-right">
-                                <Button type="button" onClick={this.tornar} className='' size='sm' color="danger" >{"Sortir sense desar"}</Button>
+                                <Button style={{margin: 2}} type="button" onClick={this.tornar} className='' size='sm' color="danger" ><Translate id="global.salirPublicacion"/></Button>
 
-                                <Button type="submit" className='' size='sm' color="success" >{"Desar canvis"}</Button>
+                                <Button  type="submit" className='' size='sm' color="success" ><Translate id="global.publicarPublicacion" /></Button>
                             </span>
                         </Col>
                     </Row>
@@ -132,7 +153,7 @@ class EditaPublicacion extends Component {
 
                         <Col sm="6">
                             <FormGroup>
-                                <Label for="ubicacion_latitudInput">ubicacion_latitud</Label>
+                                <Label for="ubicacion_latitudInput" className="textoPublicacion"><Translate id="global.ubicacionLatitud" /></Label>
                                 <Input type="text" name="ubicacion_latitud" id="ubicacion_latitudInput"
                                     value={this.state.ubicacion_latitud}
                                     onChange={this.handleInputChange} />
@@ -140,7 +161,7 @@ class EditaPublicacion extends Component {
                         </Col>
                         <Col sm="6">
                             <FormGroup>
-                                <Label for="ubicacion_longitudInput">ubicacion_longitud</Label>
+                                <Label for="ubicacion_longitudInput" className="textoPublicacion"><Translate id="global.ubicacionLongitud" /></Label>
                                 <Input type="text" name="ubicacion_longitud" id="ubicacion_longitudInput"
                                     value={this.state.ubicacion_longitud}
                                     onChange={this.handleInputChange} />
@@ -149,7 +170,7 @@ class EditaPublicacion extends Component {
 
                         <Col sm="6">
                             <FormGroup>
-                                <Label for="nombreInput">Nom</Label>
+                                <Label for="nombreInput" className="textoPublicacion"><Translate id="global.nombrePublicacion" /></Label>
                                 <Input type="text" name="nombre" id="nombreInput"
                                     value={this.state.nombre_ES}
                                     onChange={this.handleInputChange} />
@@ -158,7 +179,7 @@ class EditaPublicacion extends Component {
 
                         <Col sm="6">
                             <FormGroup>
-                                <Label for="precioInput">precio</Label>
+                                <Label for="precioInput" className="textoPublicacion"><Translate id="global.precioPublicacion" /></Label>
                                 <Input type="text" name="precio" id="precioInput"
                                     value={this.state.precio}
                                     onChange={this.handleInputChange} />
@@ -167,7 +188,7 @@ class EditaPublicacion extends Component {
 
                         <Col sm="6">
                             <FormGroup>
-                                <Label for="infoInput">info</Label>
+                                <Label for="infoInput" className="textoPublicacion"><Translate id="global.informacionPublicacion" /></Label>
                                 <Input type="text" name="info" id="infoInput"
                                     value={this.state.Info_ES}
                                     onChange={this.handleInputChange} />
@@ -176,9 +197,9 @@ class EditaPublicacion extends Component {
 
                         <Col sm="6">
                             <FormGroup>
-                                <Label for="imgInput">img</Label>
+                                <Label for="imgInput" className="textoPublicacion"><Translate id="global.imagenPublicacion" /><img className="imagenBotonEnviar" src="https://img.icons8.com/ultraviolet/40/000000/upload-to-ftp.png" /></Label>
                                 <Input type="file" name="file" id="imgInput"
-                                    onChange={this.onChangeHandler} />
+                                    onChange={this.onChangeHandler} className="botonEnviar" />
 
                             </FormGroup>
                         </Col>
@@ -198,7 +219,7 @@ class EditaPublicacion extends Component {
 
 
 
-export default EditaPublicacion;
+export default withLocalize(EditaPublicacion);
 
 
 

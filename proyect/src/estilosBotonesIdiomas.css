@@ -1,0 +1,29 @@
+    .liLista{
+        list-style: none;
+        float: right;
+    }
+    .botonesIdiomas{
+    border: none;
+    background: transparent;
+    border: 0px;
+    padding: 0px;
+    margin: 0px;
+    }
+    .iconoIdiomas{
+        border:0px;
+        padding:0px;
+        margin: 0px;
+        height: 50%;
+        width: 50%; 
+    }
+
+
+    .botonEnviar{
+        visibility: hidden;
+    }
+
+    .imagenBotonEnviar{
+        cursor: pointer;
+        margin: 10%;
+    }
+    

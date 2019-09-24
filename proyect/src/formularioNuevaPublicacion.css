@@ -1,0 +1,21 @@
+body{
+
+    background-color: red;
+}
+
+
+.formPublicacion{
+
+    padding: 10%;
+    border-radius: 100%;
+    background-image: linear-gradient( #fdecff, #d2d0fe, #7f78d2, #6d0c74);
+
+}
+.tituloPublicacion{
+    margin-left: 5%;
+    margin-bottom: 15%; 
+    color: black;   
+}
+.textoPublicacion{
+    color: white;
+}

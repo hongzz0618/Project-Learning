@@ -1,12 +1,13 @@
 import React from "react";
 import { Redirect } from 'react-router-dom';
+import { Translate, withLocalize } from "react-localize-redux";
 
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
-import "./css/calculadora.css";
+import "./css/estilosProducto.css";
 import { BrowserRouter, Link, Switch, Route, NavLink } from "react-router-dom";
 const API = "http://localhost:3000/api";
 
-export default class Producto extends React.Component {
+class Producto extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -76,35 +77,42 @@ export default class Producto extends React.Component {
     }
 
     render() {
-        if (!this.state.publicacion) {
+        if (!this.state.publicacion || !this.props.activeLanguage) {
             return <h1>Cargando datos...</h1>
         }
+
+                // this.props.activeLanguage.code ha sido "inyectado" en este componente y lo podemos utilizar
+        // gracias al withLocalize(...) de abajo del todo...
+        let idioma_actual = this.props.activeLanguage.code;
+        let campo_nombre = "nombre_"+idioma_actual.toUpperCase();
+        let campo_info = "Info_"+idioma_actual.toUpperCase();
+
+
+
+
 
         let bbdd = this.state.publicacion.map(el => <>
 
 
-            <div key={el.idPublicacion} className="producto" ><div><i className="far fa-heart corazon" onClick={() => this.insertLike(el.idPublicacion)} onChange={this.handleInputChange}>{el.numLikes}</i></div>
-                <NavLink to={"/datos_bbdd/" + el.idPublicacion}>
-                    <center><div>{el.file ? <img src={'http://localhost:3000/img/' + el.file} alt="xx" /> : "No foto"} </div>  <h3>{el.nombre_ES}</h3><p>{el.precio}</p>
+            <div key={el.idPublicacion} className="cajaProducto" >
+                
+                <div>
+                   <i className="corazonProducto far fa-heart" onClick={() => this.insertLike(el.idPublicacion)} onChange={this.handleInputChange}>{el.numLikes}</i>
+                </div>
+                <NavLink className="navProducto" to={"/datos_bbdd/" + el.idPublicacion}>
+                    <center>
+                        <div>
+                        {el.file ? <img className="imagenProducto" src={'http://localhost:3000/img/' + el.file} alt="xx" /> : "No foto"} 
+                        </div>  
+                        <h3>{el[campo_nombre]}</h3>
+                        <p>{el.precio}</p>
 
-                        {el.Info_ES} <br />
+                        <div className="textoProducto">{el[campo_info]}</div> <br />
 
 
                         <form>
-                            {/* <div className="clasificacion coment">
-                            <input id="radio1" type="radio" name="estrellas" value="5" />
-                            <label for="radio1">★</label>
-                            <input id="radio2" type="radio" name="estrellas" value="4" />
-                            <label for="radio2">★</label>
-                            <input id="radio3" type="radio" name="estrellas" value="3" />
-                            <label for="radio3">★</label>
-                            <input id="radio4" type="radio" name="estrellas" value="2" />
-                            <label for="radio4">★</label>
-                            <input id="radio5" type="radio" name="estrellas" value="1" />
-                            <label for="radio5">★</label>
 
-                        </div> */}
-                            <p className="coment"> ({el.numComent})</p>
+                            <p className="comentariosProducto"><img src="https://img.icons8.com/plasticine/100/000000/comments.png" width="40%" />({el.numComent})</p>
                         </form>
                     </center>
 
@@ -117,7 +125,7 @@ export default class Producto extends React.Component {
             <>
 
                 <center>
-                    <Button className="b_newpublicacion" ><Link className="dropdown-item" to="/new_publicacion">Nova publicacion</Link></Button>
+                    <Link className="botonProductoPublicar btn btn-secondary" to="/new_publicacion"><Translate id="global.nuevaPublicacion" /></Link>
 
                 </center>
                 {bbdd}
@@ -129,3 +137,4 @@ export default class Producto extends React.Component {
     }
 
 }
+export default withLocalize(Producto);  

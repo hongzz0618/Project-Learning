@@ -1,0 +1,133 @@
+
+.comentariosProducto{
+  display: inline-block;
+  margin-left: 50%;
+}
+
+.imagenProducto {  /*para que las imágenes se autoajusten si la producto es más pequeña */
+
+
+  max-width: 100%;
+
+  border-radius: 5%;
+  height: 240px;
+
+
+}
+
+
+
+
+.cajaProducto {
+
+  box-sizing: border-box; /* para que los padding y border no se sumen al width */
+  display: inline-block;
+  text-align: center;
+  width: 100%;
+  margin: -2px; /* esto es para solventar la posibilidad de que no entren las columnas diseñadas */
+  vertical-align: top; /* alinear cada producto arriba */
+  border-radius: 5%;
+  margin-top: 2%;
+  padding: 10px;
+ 
+
+}
+
+
+
+@media (min-width: 425px) { /* para esta resolución mínima */
+
+
+.cajaProducto {
+
+
+    width: 50%; /* 2 columnas a partir de la resolución indicada */
+
+
+  }
+
+
+}
+
+
+@media (min-width: 768px) { /* para esta resolución mínima */
+
+
+.cajaProducto {
+
+
+    width: 33.33333333%; /* 3 columnas a partir de la resolución indicada */
+
+
+  }
+
+
+}
+
+
+@media (min-width: 992px) { /* para esta resolución mínima */
+
+
+ .cajaProducto {
+
+
+    width: 25%; /* 4 columnas a partir de la resolución indicada */
+
+
+  }
+
+
+}
+
+
+.cajaProducto.navProducto {
+
+
+  display: block; /* para que el enlace abarque toda la "celda" del producto */
+  transition: transform .5s; 
+  width: 90%;
+
+
+}
+.cajaProducto a:hover{
+  text-decoration: none;
+  color: black;
+}
+.cajaProducto a:link{
+  text-decoration: none;
+  color: black;
+}
+.cajaProducto a:visited{
+  text-decoration: none;
+  color: black;
+}
+.cajaProducto a:active{
+  text-decoration: none;
+  color: black;
+}
+
+.cajaProducto:hover {
+  transform: scale(1.05); 
+}
+
+/*MODIFICAR EL CORAZON*/
+.corazonProducto{
+  font-size: 180%;
+  color: gray;
+  position: relative;
+  z-index: 1;
+  top: 10%;
+}
+.corazonProducto:hover{
+  color: red;
+}
+
+.botonProductoPublicar{
+  position: relative;
+  margin-right: 80%;
+  margin-top: 5%;
+  
+}
+.textoProducto{
+  text-align: left;
+}

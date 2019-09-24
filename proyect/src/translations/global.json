@@ -1,0 +1,32 @@
+{
+    "global": {
+
+      "ESTAS_TRADUCCIONES_SON_DE_NOVAPUBLICAIO,EDITAPUBLICACION.JSX": ["none"],
+      
+      "salirPublicacion": ["Salir","Out","出口"],
+      "publicarPublicacion": ["Publicar","Post","发布"],
+      "salirSinGuardar": ["¿Salir sin guardar?","Leave without saving?","离开而不保存？"],
+      "nuevaPublicacion": ["Nueva publicación", "New post", "新帖子"],
+      "ubicacionLatitud": ["Ubicación latitud","Latitude position","纬度位置"],
+      "ubicacionLongitud": ["Ubicación longitud","Lenght position","位置长度"],
+      "nombrePublicacion": ["Nombre","Name","名"],
+      "precioPublicacion": ["Precio","Cost","价格"],
+      "informacionPublicacion": ["Información","Information","信息"],
+      "imagenPublicacion": ["Imagen","Image","图片"],
+      "editarPublicacion": ["Editar publicación","Edit post","编辑部"],
+
+      "ESTAS_TRADUCCIONES_SON_DE_DATOSBBDD.JSX": ["none"],
+
+      "comentariosDatos": ["Comentarios","Comments","评论"],
+      "publicarComentarioDatos": ["Publicar comentario","Post Comment","发表评论"],
+      "volverDatos": ["Volver","Return","回报"],
+
+      "ESTAS_TRADUCCIONES_SON_DE_PRODUCTOR.JSX": ["none"]
+
+      
+
+      
+    }
+}
+    
+
