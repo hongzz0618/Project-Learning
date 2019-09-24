@@ -171,7 +171,7 @@ tornar() {
                         <Col sm="6">
                             <FormGroup>
                                 <Label for="nombreInput" className="textoPublicacion"><Translate id="global.nombrePublicacion" /></Label>
-                                <Input type="text" name="nombre" id="nombreInput"
+                                <Input type="text" name="nombre_ES" id="nombreInput"
                                     value={this.state.nombre_ES}
                                     onChange={this.handleInputChange} />
                             </FormGroup>
@@ -189,7 +189,7 @@ tornar() {
                         <Col sm="6">
                             <FormGroup>
                                 <Label for="infoInput" className="textoPublicacion"><Translate id="global.informacionPublicacion" /></Label>
-                                <Input type="text" name="info" id="infoInput"
+                                <Input type="text" name="Info_ES" id="infoInput"
                                     value={this.state.Info_ES}
                                     onChange={this.handleInputChange} />
                             </FormGroup>
