@@ -51,8 +51,12 @@ class EditaPublicacion extends Component {
                 this.setState({
                     idPublicacion: data.idPublicacion,
                     nombre_ES: data.nombre_ES,
+                    nombre_EN: data.nombre_EN,
+                    nombre_CH: data.nombre_CH,
                     precio: data.precio,
                     Info_ES: data.Info_ES,
+                    Info_EN: data.Info_EN,
+                    Info_CH: data.Info_CH,
                     file: data.file,
                     ubicacion_latitud: data.ubicacion_latitud,
                     ubicacion_longitud: data.ubicacion_longitud
@@ -84,7 +88,11 @@ class EditaPublicacion extends Component {
         data.append('ubicacion_longitud', this.state.ubicacion_longitud);
         data.append('precio', this.state.precio);
         data.append('Info_ES', this.state.Info_ES);
+        data.append('Info_EN', this.state.Info_EN);
+        data.append('Info_CH', this.state.Info_CH);
         data.append('nombre_ES', this.state.nombre_ES);
+        data.append('nombre_EN', this.state.nombre_EN);
+        data.append('nombre_CH', this.state.nombre_CH);
         axios.put(API+"/publicacion/"+itemId, data)
         .then(res => { 
             console.log(res);
@@ -170,13 +178,29 @@ tornar() {
 
                         <Col sm="6">
                             <FormGroup>
-                                <Label for="nombreInput" className="textoPublicacion"><Translate id="global.nombrePublicacion" /></Label>
-                                <Input type="text" name="nombre_ES" id="nombreInput"
+                                <Label for="nombre_ESInput" className="textoPublicacion"><Translate id="global.nombrePublicacion" /></Label>
+                                <Input type="text" name="nombre_ES" id="nombre_ESInput"
                                     value={this.state.nombre_ES}
-                                    onChange={this.handleInputChange} />
+                                    onChange={this.handleInputChange} required />
                             </FormGroup>
                         </Col>
 
+                        <Col sm="6">
+                            <FormGroup>
+                                <Label for="nombre_ENInput" className="textoPublicacion"><Translate id="global.nombrePublicacion" /></Label>
+                                <Input type="text" name="nombre_EN" id="nombre_ENInput"
+                                    value={this.state.nombre_EN}
+                                    onChange={this.handleInputChange} required />
+                            </FormGroup>
+                        </Col>
+                        <Col sm="6">
+                            <FormGroup>
+                                <Label for="nombre_CHInput" className="textoPublicacion"><Translate id="global.nombrePublicacion" /></Label>
+                                <Input type="text" name="nombre_CH" id="nombre_CHInput"
+                                    value={this.state.nombre_CH}
+                                    onChange={this.handleInputChange} required />
+                            </FormGroup>
+                        </Col>
                         <Col sm="6">
                             <FormGroup>
                                 <Label for="precioInput" className="textoPublicacion"><Translate id="global.precioPublicacion" /></Label>
@@ -186,11 +210,30 @@ tornar() {
                             </FormGroup>
                         </Col>
 
+                     
                         <Col sm="6">
                             <FormGroup>
-                                <Label for="infoInput" className="textoPublicacion"><Translate id="global.informacionPublicacion" /></Label>
-                                <Input type="text" name="Info_ES" id="infoInput"
+                                <Label for="Info_ESInput" className="textoPublicacion"><Translate id="global.informacionPublicacion" /></Label>
+                                <Input type="text" name="Info_ES" id="Info_ESInput"
                                     value={this.state.Info_ES}
+                                    onChange={this.handleInputChange} />
+                            </FormGroup>
+                        </Col>
+
+                        <Col sm="6">
+                            <FormGroup>
+                                <Label for="Info_ENInput" className="textoPublicacion"><Translate id="global.informacionPublicacion" /></Label>
+                                <Input type="text" name="Info_EN" id="Info_ENInput"
+                                    value={this.state.Info_EN}
+                                    onChange={this.handleInputChange} />
+                            </FormGroup>
+                        </Col>
+
+                        <Col sm="6">
+                            <FormGroup>
+                                <Label for="Info_CHInput" className="textoPublicacion"><Translate id="global.informacionPublicacion" /></Label>
+                                <Input type="text" name="Info_CH" id="Info_CHInput"
+                                    value={this.state.Info_CH}
                                     onChange={this.handleInputChange} />
                             </FormGroup>
                         </Col>

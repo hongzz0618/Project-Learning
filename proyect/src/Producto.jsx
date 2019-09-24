@@ -11,8 +11,8 @@ class Producto extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            publicacion: [], like: 0, comentario: 0,
-            desactivados: []
+            publicacion: [], like: 0, comentario: 0, inser: 0,
+            desactivados: [], usuarioActual: 1,
         };
         this.loadData = this.loadData.bind(this);
         this.insertLike = this.insertLike.bind(this);
@@ -35,26 +35,46 @@ class Producto extends React.Component {
 
     insertLike(id) {
 
-        if (this.state.desactivados.indexOf(id)!==-1) {
-            return;
+        if (this.state.inser == 0) {
+
+            console.log(this.state.inser);
+            this.setState({
+                inser: 1
+            });
+
+            // if (this.state.desactivados.indexOf(id)!==-1) {
+            //     return;
+            // }
+
+            // this.setState({desactivados: [...this.state.desactivados, id]});
+
+            let contacto = {
+                Usuario_idUsuario: this.state.usuarioActual,
+                Publicacion_idPublicacion: id,
+
+            }
+            fetch(API + '/likes/', {
+                method: 'POST',
+                headers: new Headers({ 'Content-Type': 'application/json' }),
+                body: JSON.stringify(contacto)
+            })
+                .then(respuesta => respuesta.json())
+                .then(() => this.loadData())
+                .catch(err => console.log(err));
+
+
         }
-        
-        this.setState({desactivados: [...this.state.desactivados, id]});
+        else {
+            console.log(this.state.inser);
+            this.setState({
+                inser: 0
+            });
+            fetch(API + "/likes/" + id + "/" + this.state.usuarioActual, { method: 'DELETE' })
+                .then(() => this.loadData())
+                .catch(err => console.log(err))
 
-        let contacto = {
-
-            Publicacion_idPublicacion: id,
 
         }
-        fetch(API + '/likes/', {
-            method: 'POST',
-            headers: new Headers({ 'Content-Type': 'application/json' }),
-            body: JSON.stringify(contacto)
-        })
-            .then(respuesta => respuesta.json())
-            .then(() => this.loadData())
-            .catch(err => console.log(err));
-
     }
     loadData() {
 
@@ -64,16 +84,6 @@ class Producto extends React.Component {
             .catch(err => console.log(err));
 
 
-        // fetch(API + "/likes/1/count")
-        //     .then(datos => datos.json())
-        //     .then(like => this.setState({ like: like.data.cuantos }))
-        //     .catch(err => console.log(err));
-
-        // fetch(API + "/comentario/1/count")
-        //     .then(datos => datos.json())
-        //     .then(comentario => this.setState({ comentario: comentario.data.cuantos }))
-        //     .catch(err => console.log(err));
-
     }
 
     render() {
@@ -81,11 +91,11 @@ class Producto extends React.Component {
             return <h1>Cargando datos...</h1>
         }
 
-                // this.props.activeLanguage.code ha sido "inyectado" en este componente y lo podemos utilizar
+        // this.props.activeLanguage.code ha sido "inyectado" en este componente y lo podemos utilizar
         // gracias al withLocalize(...) de abajo del todo...
         let idioma_actual = this.props.activeLanguage.code;
-        let campo_nombre = "nombre_"+idioma_actual.toUpperCase();
-        let campo_info = "Info_"+idioma_actual.toUpperCase();
+        let campo_nombre = "nombre_" + idioma_actual.toUpperCase();
+        let campo_info = "Info_" + idioma_actual.toUpperCase();
 
 
 
@@ -95,15 +105,15 @@ class Producto extends React.Component {
 
 
             <div key={el.idPublicacion} className="cajaProducto" >
-                
+
                 <div>
-                   <i className="corazonProducto far fa-heart" onClick={() => this.insertLike(el.idPublicacion)} onChange={this.handleInputChange}>{el.numLikes}</i>
+                    <i className="corazonProducto far fa-heart" onClick={() => this.insertLike(el.idPublicacion)} onChange={this.handleInputChange}>{el.numLikes}</i>
                 </div>
                 <NavLink className="navProducto" to={"/datos_bbdd/" + el.idPublicacion}>
                     <center>
                         <div>
-                        {el.file ? <img className="imagenProducto" src={'http://localhost:3000/img/' + el.file} alt="xx" /> : "No foto"} 
-                        </div>  
+                            {el.file ? <img className="imagenProducto" src={'http://localhost:3000/img/' + el.file} alt="xx" /> : "No foto"}
+                        </div>
                         <h3>{el[campo_nombre]}</h3>
                         <p>{el.precio}</p>
 

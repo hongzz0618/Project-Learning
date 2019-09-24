@@ -65,10 +65,10 @@ router.put('/:id', (req, res, next) => {
 
 
 
-router.delete('/:id', (req, res, next) => {
-    let idLike = req.params.id;
-    model.likes.destroy({ where: { idLike: idLike } })
-        .then(item => res.json({ ok: true, data: item }))
+router.delete('/:id/:userID', (req, res, next) => {
+    let idPublicacion = req.params.id;
+    let idUsuario = req.params.userID;
+    model.likes.destroy({ where: { Publicacion_idPublicacion: idPublicacion,Usuario_idUsuario:idUsuario } })
         .catch(err => res.json({ ok: false, error: err }));
 });
 
