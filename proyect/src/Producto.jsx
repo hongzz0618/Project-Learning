@@ -112,7 +112,7 @@ class Producto extends React.Component {
 
                         <form>
 
-                            <p className="comentariosProducto"><img src="https://img.icons8.com/plasticine/100/000000/comments.png" width="40%" />({el.numComent})</p>
+                            {/* <p className="comentariosProducto"><img src="https://img.icons8.com/plasticine/100/000000/comments.png" width="40%" />({el.numComent})</p> */}
                         </form>
                     </center>
 

@@ -13,7 +13,7 @@ class TriaIdioma extends React.Component {
 
     return (
       <ul className="selector">
-        {languages.map(lang => (
+        {languages.map(lang => (  
           <li className="liLista" key={lang.code}>
             <button className="botonesIdiomas" onClick={() => this.props.setActiveLanguage(lang.code)}>
               {lang.name}
