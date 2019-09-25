@@ -32,7 +32,7 @@ import "./pruebasMenu.css";
         <li>
           <div class="placeholder">
             <div class="upside">
-              <Link to="/" class="button"><img src="https://img.icons8.com/ios/40/000000/map.png"/></Link>
+              <Link to="/principal" class="button"><img src="https://img.icons8.com/ios/40/000000/map.png"/></Link>
             </div>
           </div>
         </li>

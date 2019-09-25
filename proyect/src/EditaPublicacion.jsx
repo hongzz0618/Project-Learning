@@ -234,7 +234,8 @@ tornar() {
                                 <Label for="imgInput" className="textoPublicacion"><Translate id="global.imagenPublicacion" /><img className="imagenBotonEnviar" src="https://img.icons8.com/ultraviolet/40/000000/upload-to-ftp.png" /></Label>
                                 <Input type="file" name="file" id="imgInput"
                                     onChange={this.onChangeHandler} className="botonEnviar" />
-
+                                    
+<input  value={this.state.file}/>
                             </FormGroup>
                         </Col>
 
