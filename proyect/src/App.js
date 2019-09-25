@@ -16,8 +16,8 @@ import Principal from './principal';
 import { withLocalize } from "react-localize-redux";
 import { renderToStaticMarkup } from "react-dom/server";
 import globalTranslations from "./translations/global.json";
+import Menu from "./Menu.jsx";
 
-import Menu from './Menu';
 import TriaIdioma from './TriaIdioma';
 import "./estilosBotonesIdiomas.css";
 
@@ -45,12 +45,12 @@ class App extends React.Component {
 
       <>
       {/* pruebas del idioma */}
-      {/* <TriaIdioma /> */}
+      <TriaIdioma />
         <BrowserRouter>
 
      
 
-            <Menu />
+          <Menu />
           <Switch>
 
             <Route exact path="/" component={Principal} />
@@ -61,7 +61,8 @@ class App extends React.Component {
 
           </Switch>
 
-
+         
+     
         </BrowserRouter>
 
 
