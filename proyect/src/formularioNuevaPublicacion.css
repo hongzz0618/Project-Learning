@@ -1,21 +1,28 @@
-body{
-
-    background-color: red;
-}
-
-
 .formPublicacion{
 
-    padding: 10%;
+    padding: 15%;
     border-radius: 100%;
     background-image: linear-gradient( #fdecff, #d2d0fe, #7f78d2, #6d0c74);
 
 }
 .tituloPublicacion{
     margin-left: 5%;
-    margin-bottom: 15%; 
+    margin-bottom: 8%; 
     color: black;   
 }
 .textoPublicacion{
     color: white;
+}
+.botonEnviar{
+    visibility: hidden;
+}
+
+.imagenBotonEnviar{
+    cursor: pointer;
+    margin: 10%;
+}
+.mapaNuevaPublicacion{
+height: 50px;
+width: 50px;
+background-color: #6d0c74;
 }

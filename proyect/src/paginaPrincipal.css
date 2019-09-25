@@ -4,3 +4,9 @@
     position: absolute;
     z-index: 1;
 }
+.mapaGlobal{
+    height: 100vh;
+}
+.mapaGlobal.dos{
+    height: 100%;
+}

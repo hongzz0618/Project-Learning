@@ -1,10 +1,13 @@
 import React from "react";
-import { Redirect } from 'react-router-dom';
 import { Translate, withLocalize } from "react-localize-redux";
 import { Button, Form, FormGroup, Label, Input, Row, Col, Container, Card, CardTitle, CardBody, CardImg, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 
 import "./css/estilosProducto.css";
-import { BrowserRouter, Link, Switch, Route, NavLink } from "react-router-dom";
+import { Redirect ,BrowserRouter, Link, Switch, Route, NavLink } from "react-router-dom";
+
+
+
+
 const API = "http://localhost:3000/api";
 
 class Producto extends React.Component {
