@@ -95,11 +95,18 @@ class Producto extends React.Component {
     _handleSubmit = (e) => {
         e.preventDefault();
 
-        fetch(API + "/publicacion/nombre/"+this.state.inputMovie)
-            .then(res => res.json())
-            .then(publicacions => this.setState({ buscando: true, publicacion_search: publicacions.data }))
-            .catch(err => console.log(err));
+if (this.state.inputMovie=="") {
+ 
+    this.setState({ buscando: false, })
+}else{
 
+    fetch(API + "/publicacion/nombre/"+this.state.inputMovie)
+    .then(res => res.json())
+    .then(publicacions => this.setState({ buscando: true, publicacion_search: publicacions.data }))
+    .catch(err => console.log(err));
+
+}
+       
 
     }
 
@@ -191,10 +198,10 @@ let bbdd_search = this.state.publicacion_search.map(el => <><div key={el.idPubli
                     <form onSubmit={this._handleSubmit} className="medium-margin-bottom">
                         <div className="field has-addons">
                             <div className="control">
-                                <input
+                                <Input size="lg" color="danger"
                                     autoFocus
                                     onChange={this._handleChange}
-                                    required
+                         placeholder="Introduce para buscar un producto"
                                     type="text"
                                     value={this.state.inputMovie}
                                 />
@@ -208,8 +215,8 @@ let bbdd_search = this.state.publicacion_search.map(el => <><div key={el.idPubli
                         </div>
                     </form>
           
-                 {bbdd_search}
-                     {(this.state.buscando) ? <></> : bbdd}
+                 {(this.state.buscando) ?  bbdd_search : bbdd}
+                  {(this.state.publicacion_search.length>1 || this.state.buscando==false) ? "":<><h1>No existe el Producto introducido</h1></>}
                 
                 
                  </Row>
