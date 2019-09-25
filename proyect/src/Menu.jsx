@@ -15,7 +15,7 @@ import '@trendmicro/react-sidenav/dist/react-sidenav.css';
     render() {
         return (
             <>
-                <SideNav style={{  float: "left"}}
+                <SideNav style={{  position: 'fixed'}}
                     onSelect={(selected) => {
                         const to = '/' + selected;
                         if (this.props.location.pathname !== to) {

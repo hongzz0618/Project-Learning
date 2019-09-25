@@ -5,6 +5,7 @@ import { Redirect } from 'react-router-dom';
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import { Row, Col } from 'reactstrap';
 import axios from 'axios';
+import Mapa from './Mapa';
 /*multiIdiomas*/
 import { Translate, withLocalize } from "react-localize-redux";
 // ESTE CSS ES PARA EL INPUT DE ABAJO
@@ -28,13 +29,23 @@ class NovaPublicacio extends React.Component {
             Info_ES: '',
             Info_EN: '',
             Info_CH: '',
-            file: '',loading: false, selectedFile: false, itemId: this.props.match.params.itemId
+            file: '',loading: false, selectedFile: false, itemId: this.props.match.params.itemId,
+            data: [],
+            coords: "x,y"
         };
         this.onChangeHandler = this.onChangeHandler.bind(this);
         this.handleInputChange = this.handleInputChange.bind(this);
         this.tornar = this.tornar.bind(this);
         this.submit = this.submit.bind(this);
+        this.coordenadas = this.coordenadas.bind(this);
     }
+
+    coordenadas(e) {
+        let c = e.latLng.toJSON();
+        this.setState({ coords: c, data: [{ 'idPublicacion': 99, 'ubicacion_latitud': c.lat.toString(), 'ubicacion_longitud': c.lng.toString() }] });
+        console.log("arriba",this.state.coords, this.state.data);
+      }
+    
 
     onChangeHandler = event=>{
         this.setState({
@@ -60,9 +71,9 @@ class NovaPublicacio extends React.Component {
 
         const data = new FormData() 
         data.append('file', this.state.selectedFile);
-     
-        data.append('ubicacion_latitud', this.state.ubicacion_latitud);
-        data.append('ubicacion_longitud', this.state.ubicacion_longitud);
+
+        data.append('ubicacion_latitud', this.state.data[0].ubicacion_latitud);
+        data.append('ubicacion_longitud', this.state.data[0].ubicacion_longitud);
         data.append('precio', this.state.precio);
         data.append('Info_ES', this.state.Info_ES);
         data.append('Info_EN', this.state.Info_EN);
@@ -111,6 +122,7 @@ class NovaPublicacio extends React.Component {
             return <Redirect to="/producto" />
         }
         
+        let datos = this.state.data;
 
         return (
             <>
@@ -220,6 +232,11 @@ class NovaPublicacio extends React.Component {
                             </FormGroup>
                         </Col>
 
+                        <Col sm="6">
+                        
+                            <Mapa datos={datos} altura='400px' anchura='400px' selector={true} coordenadas={this.coordenadas} />
+
+                        </Col>
 
 
 
