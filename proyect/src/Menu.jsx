@@ -32,70 +32,70 @@ import "./pruebasMenu.css";
         <li>
           <div class="placeholder">
             <div class="upside">
-              <a href="https://codepen.io/logrithumn" class="button"><i class="fa fa-user"></i></a>
+              <Link to="/" class="button"><img src="https://img.icons8.com/ios/40/000000/map.png"/></Link>
             </div>
           </div>
         </li>
         <li>
           <div class="placeholder">
             <div class="upside">
-              <a href="#" class="button"><i class="fa fa-cog"></i></a>
+              <Link to="/producto" class="button"><img src="https://img.icons8.com/ios/40/000000/courses.png"/></Link>
             </div>
           </div>
         </li>
         <li>
           <div class="placeholder">
             <div class="upside">
-              <a href="#">nbsp</a>
+              
             </div>
           </div>
         </li>
         <li>
           <div class="placeholder">
             <div class="upside">
-              <a href="#" class="button"><i class="fa fa-commenting"></i></a>
+              
             </div>
           </div>
         </li>
         <li>
           <div class="placeholder">
             <div class="upside">
-              <a href="#" class="button"><i class="fa fa-trash"></i></a>
+              
             </div>
           </div>
         </li>
         <li>
           <div class="placeholder">
             <div class="upside">
-              <a href="#" class="button"><i class="fa fa-battery-4"></i></a>
+              
             </div>
           </div>
         </li>
         <li>
           <div class="placeholder">
             <div class="upside">
-              <a href="#" class="button"><i class="fa fa-calendar"></i></a>
+              
             </div>
           </div>
         </li>
         <li>
           <div class="placeholder">
             <div class="upside">
-              <a href="#" class="button"><i class="fa fa-cloud"></i></a>
+             
             </div>
           </div>
         </li>
         <li>
           <div class="placeholder">
             <div class="upside">
-              <a href="#" class="button"><i class="fa fa-wifi"></i></a>
+              
             </div>
           </div>
         </li>
         <li>
           <div class="placeholder">
             <div class="upside">
-              <a href="#" class="button"><i class="fa fa-envelope-o"></i></a>
+              <Link to="#" class="button"><img src="https://img.icons8.com/ios/40/000000/user.png"/></Link>
             </div>
           </div>
         </li>
