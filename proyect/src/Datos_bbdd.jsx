@@ -129,28 +129,29 @@ class Datos_bbdd extends React.Component {
             <Container fluid>
                 <Row className="cajaPrimariaRow">
                     
-                <Col sm="6" lg="6">
+                <Col sm="12" lg="12">
+                <div className="botonesAtrasEditarBorarDatos">
                 <Button style={{marginBottom: 10}} type="button" onClick={this.tornar} className='secodary' size='sm'><Translate id="global.volverDatos" /></Button>
-                </Col>
-                <Col sm="6" lg="6">
-                    {/* BOTONES EDITAR Y BORRAR */}
+
                 <div className="botonesEditarBorrarDatos">
                     <i style={{ cursor: "pointer", marginRight: 5 }} className='fa fa-lg fa-edit text-success' onClick={() => this.editItem(this.state.publicacion.idPublicacion)}></i>
                     <i style={{ cursor: "pointer" }} className='fa fa-lg fa-trash text-danger' onClick={() => this.deleteItem(this.state.publicacion.idPublicacion)}></i>
                 </div>
+                </div>
                 </Col>
-                <Col sm="12" lg="12">
-                <Card>
+
+
+
+                <Col sm="6" lg="6">
+                <Card className>
                     {xxx.file ? <img className="imagenDatos" src={'http://localhost:3000/img/' + xxx.file} alt="xx" /> : "No foto"} 
+                    
                 <CardTitle><h1>{this.state.publicacion[campo_nombre]}</h1></CardTitle>
                 <CardBody>
                     {this.state.publicacion[campo_info]}
                 </CardBody>
-                
-
 
 {/* DATOS DE CONTACTO Y REDES SOCIALES. */}
-
                 <div>
                 <img src="https://img.icons8.com/color/50/000000/myspace.png" onClick={this.toggle}>{this.props.buttonLabel}</img>
                 <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
@@ -164,18 +165,13 @@ class Datos_bbdd extends React.Component {
                     </ModalFooter>
                 </Modal>
                </div>
-
-
-
-
                 </Card>
                 </Col>
-                </Row>
                 
-                <Row className="CajaSecundariaRow">
-                    <Col>
+                
+                
+                <Col xs="6" xl="6">
                 <Form onSubmit={this.submit}>
-                    {/* PONER ALGO PARA LOS COMENTARIOS que los esconda */}
                     
                 <h3><Translate id="global.comentariosDatos" /></h3>
                 <hr />
@@ -184,19 +180,15 @@ class Datos_bbdd extends React.Component {
                 </div>
 
                         
-                            <FormGroup>
-                                <Label for="comentarioInput"></Label>
-                                <Input type="text" name="comentario" id="comentarioInput"
-                                    value={this.state.comentario}
-                                    onChange={this.handleInputChange} />
-                            </FormGroup>
+                    <FormGroup>
+                    <Label for="comentarioInput"></Label>
+                    <Input type="text" name="comentario" id="comentarioInput"
+                    value={this.state.comentario}
+                    onChange={this.handleInputChange} />
+                    </FormGroup>
                         
 
-                        <Button type="submit" className="botonPublicarComentarioDatos" size='sm' color="secondary" >{<Translate id="global.publicarComentarioDatos" />}</Button>
-
-
-
-                    
+                    <Button type="submit" className="botonPublicarComentarioDatos" size='sm' color="secondary" >{<Translate id="global.publicarComentarioDatos" />}</Button>
 
                 </Form>
                 </Col>
