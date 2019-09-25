@@ -122,7 +122,7 @@ export default class Mapa extends React.Component {
                     posicion = {this.state.coordenadas}
                     googleMapURL={url}
                     loadingElement={<div style={{ height: '100%' }} />}
-                    containerElement={<div style={{ height: '100vh' }} />}
+                    containerElement={<div style={{ height: this.props.pruebaMapa }} />}
                     mapElement={<div style={{ height: '100%' }} />}
                     
                 />

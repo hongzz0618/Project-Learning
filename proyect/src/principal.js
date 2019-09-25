@@ -49,7 +49,7 @@ export default class Principal extends React.Component {
       <>  
 
 
-              <Mapa datos={datos} altura='100%' anchura='100%' selector={false} coordenadas={this.coordenadas} />
+              <Mapa pruebaMapa="100vh" datos={datos} altura='100%' anchura='100%' selector={false} coordenadas={this.coordenadas} />
 
 
 

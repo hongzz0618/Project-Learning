@@ -127,9 +127,9 @@ class Datos_bbdd extends React.Component {
 
             /*informacion en castellano ingles y chino*/
             <Container fluid>
-                <Row className="cajaPrimariaRow">
+                <Row>
                     
-                <Col sm="12" lg="12">
+                <Col className="cajaColDatos" sm="12" lg="12">
                 <div className="botonesAtrasEditarBorarDatos">
                 <Button style={{marginBottom: 10}} type="button" onClick={this.tornar} className='secodary' size='sm'><Translate id="global.volverDatos" /></Button>
 
@@ -192,6 +192,7 @@ class Datos_bbdd extends React.Component {
 
                 </Form>
                 </Col>
+
                 </Row>
             </Container>
         )
