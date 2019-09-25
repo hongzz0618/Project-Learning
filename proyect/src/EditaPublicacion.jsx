@@ -165,22 +165,7 @@ tornar() {
 
                     <Row>
 
-                        <Col sm="6">
-                            <FormGroup>
-                                <Label for="ubicacion_latitudInput" className="textoPublicacion"><Translate id="global.ubicacionLatitud" /></Label>
-                                <Input type="text" name="ubicacion_latitud" id="ubicacion_latitudInput"
-                                    value={this.state.ubicacion_latitud}
-                                    onChange={this.handleInputChange} />
-                            </FormGroup>
-                        </Col>
-                        <Col sm="6">
-                            <FormGroup>
-                                <Label for="ubicacion_longitudInput" className="textoPublicacion"><Translate id="global.ubicacionLongitud" /></Label>
-                                <Input type="text" name="ubicacion_longitud" id="ubicacion_longitudInput"
-                                    value={this.state.ubicacion_longitud}
-                                    onChange={this.handleInputChange} />
-                            </FormGroup>
-                        </Col>
+
 
                         <Col sm="6">
                             <FormGroup>
@@ -255,7 +240,7 @@ tornar() {
 
                         <Col sm="6">
                         
-                        <Mapa datos={this.state.data} altura='400px' anchura='400px' selector={true} coordenadas={this.coordenadas} />
+                        <Mapa datos={this.state.data} pruebaMapa="100%" altura='400px' anchura='100%'  selector={true} coordenadas={this.coordenadas} />
                         </Col>
                     </Row>  
 

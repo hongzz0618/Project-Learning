@@ -126,72 +126,75 @@ class Datos_bbdd extends React.Component {
 
             /*informacion en castellano ingles y chino*/
             <Container fluid>
-                <Row>
-                    
-                <Col className="cajaColDatos" sm="12" lg="12">
-                <div className="botonesAtrasEditarBorarDatos">
-                <Button style={{marginBottom: 10}} type="button" onClick={this.tornar} className='secodary' size='sm'><Translate id="global.volverDatos" /></Button>
+                <Row className="cajaPrimariaRow">
 
-                <div className="botonesEditarBorrarDatos">
-                    <i style={{ cursor: "pointer", marginRight: 5 }} className='fa fa-lg fa-edit text-success' onClick={() => this.editItem(this.state.publicacion.idPublicacion)}></i>
-                    <i style={{ cursor: "pointer" }} className='fa fa-lg fa-trash text-danger' onClick={() => this.deleteItem(this.state.publicacion.idPublicacion)}></i>
-                </div>
-                </div>
-                </Col>
+                    <Col sm="12" lg="12">
+                        <div className="botonesAtrasEditarBorarDatos">
+                            <Button style={{ marginBottom: 10 }} type="button" onClick={this.tornar} className='secodary' size='sm'><Translate id="global.volverDatos" /></Button>
+
+                            <div className="botonesEditarBorrarDatos">
+                                <i style={{ cursor: "pointer", marginRight: 5 }} className='fa fa-lg fa-edit text-success' onClick={() => this.editItem(this.state.publicacion.idPublicacion)}></i>
+                                <i style={{ cursor: "pointer" }} className='fa fa-lg fa-trash text-danger' onClick={() => this.deleteItem(this.state.publicacion.idPublicacion)}></i>
+                            </div>
+                        </div>
+                    </Col>
 
 
 
-                <Col sm="6" lg="6">
-                <Card className>
-                    {xxx.file ? <img className="imagenDatos" src={'http://localhost:3000/img/' + xxx.file} alt="xx" /> : "No foto"} 
-                    
-                <CardTitle><h1>{this.state.publicacion[campo_nombre]}</h1></CardTitle>
-                <CardBody>
-                    {this.state.publicacion[campo_info]}
-                </CardBody>
+                    <Col sm="6" lg="6">
+                        <Card className>
+                            {xxx.file ? <img className="imagenDatos" src={'http://localhost:3000/img/' + xxx.file} alt="xx" /> : "No foto"}
 
-{/* DATOS DE CONTACTO Y REDES SOCIALES. */}
-                <div>
-                <img src="https://img.icons8.com/color/50/000000/myspace.png" onClick={this.toggle}>{this.props.buttonLabel}</img>
-                <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
-                    <ModalHeader toggle={this.toggle}>Redes sociales</ModalHeader>
-                    <ModalBody>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                            <CardTitle><h1>{this.state.publicacion[campo_nombre]}</h1></CardTitle>
+                            <CardBody>
+                                {this.state.publicacion[campo_info]}
+                            </CardBody>
+
+                            {/* DATOS DE CONTACTO Y REDES SOCIALES. */}
+                            <div>
+                                <img src="https://img.icons8.com/color/50/000000/myspace.png" onClick={this.toggle}>{this.props.buttonLabel}</img>
+                                <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
+                                    <ModalHeader toggle={this.toggle}>Redes sociales</ModalHeader>
+                                    <ModalBody>
+                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
                     </ModalBody>
-                    <ModalFooter>
-                    <Button color="secondary" size="sm" onClick={this.toggle}>Aceptar</Button>{' '}
+                                    <ModalFooter>
+                                        <Button color="secondary" size="sm" onClick={this.toggle}>Aceptar</Button>{' '}
 
-                    </ModalFooter>
-                </Modal>
-               </div>
-                </Card>
-                </Col>
-                
-                
-                
-                <Col xs="6" xl="6">
-                <Form onSubmit={this.submit}>
-                    
-                <h3><Translate id="global.comentariosDatos" /></h3>
-                <hr />
-                <div className="textoComentariosDatos">
-                {datosComent}
-                </div>
+                                    </ModalFooter>
+                                </Modal>
+                            </div>
+                        </Card>
+                    </Col>
 
-                        
-                    <FormGroup>
-                    <Label for="comentarioInput"></Label>
-                    <Input type="text" name="comentario" id="comentarioInput"
-                    value={this.state.comentario}
-                    onChange={this.handleInputChange} />
-                    </FormGroup>
-                        
 
-                    <Button type="submit" className="botonPublicarComentarioDatos" size='sm' color="secondary" >{<Translate id="global.publicarComentarioDatos" />}</Button>
 
-                </Form>
-                </Col>
+                    <Col xs="6" xl="6">
+                        <Form onSubmit={this.submit}>
 
+                            <h3><Translate id="global.comentariosDatos" /></h3>
+                            <hr />
+                            <div className="textoComentariosDatos">
+                                {datosComent}
+                            </div>
+
+
+                            <FormGroup>
+                                <Label for="comentarioInput"></Label>
+                                <Input type="text" name="comentario" id="comentarioInput"
+                                    value={this.state.comentario}
+                                    onChange={this.handleInputChange} />
+                            </FormGroup>
+
+
+                            <Button type="submit" className="botonPublicarComentarioDatos" size='sm' color="secondary" >{<Translate id="global.publicarComentarioDatos" />}</Button>
+
+                        </Form>
+                    </Col>
+                    <Col xs="6" xl="6">
+                    <Mapa datos={[this.state.publicacion]} altura='50vh' anchura='100%' />
+
+                    </Col>
                 </Row>
             </Container>
         )
