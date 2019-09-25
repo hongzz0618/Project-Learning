@@ -9,7 +9,6 @@ import Mapa from './Mapa';
 /*multiIdiomas*/
 import { Translate, withLocalize } from "react-localize-redux";
 // ESTE CSS ES PARA EL INPUT DE ABAJO
-import "./estilosBotonesIdiomas.css";
 import "./formularioNuevaPublicacion.css";
 
 const API = "http://localhost:3000/api";
@@ -143,24 +142,6 @@ class NovaPublicacio extends React.Component {
 
 
                     <Row>
-
-
-                        <Col sm="6">
-                            <FormGroup>
-                                <Label for="ubicacion_latitudInput" className="textoPublicacion"><Translate id="global.ubicacionLatitud" /></Label>
-                                <Input type="text" name="ubicacion_latitud" id="ubicacion_latitudInput"
-                                    value={this.state.ubicacion_latitud}
-                                    onChange={this.handleInputChange} />
-                            </FormGroup>
-                        </Col>
-                        <Col sm="6">
-                            <FormGroup>
-                                <Label for="ubicacion_longitudInput" className="textoPublicacion"><Translate id="global.ubicacionLongitud" /></Label>
-                                <Input type="text" name="ubicacion_longitud" id="ubicacion_longitudInput"
-                                    value={this.state.ubicacion_longitud}
-                                    onChange={this.handleInputChange} />
-                            </FormGroup>
-                        </Col>
                         <Col sm="6">
                             <FormGroup>
                                 <Label for="nombre_ESInput" className="textoPublicacion"><Translate id="global.nombreEspañolPublicacion" /></Label>
@@ -234,7 +215,7 @@ class NovaPublicacio extends React.Component {
 
                         <Col sm="6">
                         
-                            <Mapa datos={datos} altura='400px' anchura='400px' selector={true} coordenadas={this.coordenadas} />
+                            <Mapa datos={datos} pruebaMapa="100%" altura='400px' anchura='100%' selector={true} coordenadas={this.coordenadas} />
 
                         </Col>
 

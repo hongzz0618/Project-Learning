@@ -192,7 +192,7 @@ class Datos_bbdd extends React.Component {
                         </Form>
                     </Col>
                     <Col xs="6" xl="6">
-                    <Mapa datos={[this.state.publicacion]} altura='100%' anchura='100%' />
+                    <Mapa datos={[this.state.publicacion]} altura='50vh' anchura='100%' />
 
                     </Col>
                 </Row>

@@ -24,13 +24,4 @@
     width: 70%; 
 }
 
-/* ESTOS BOTONES HAY QUE TRASLADARLOS */
-    .botonEnviar{
-        visibility: hidden;
-    }
-
-    .imagenBotonEnviar{
-        cursor: pointer;
-        margin: 10%;
-    }
     
