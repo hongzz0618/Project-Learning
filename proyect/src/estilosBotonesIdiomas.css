@@ -1,23 +1,30 @@
-    .liLista{
-        list-style: none;
-        float: right;
-    }
-    .botonesIdiomas{
+.selector{
+    position: absolute;
+    right: 1%;
+    top: 1%;
+}  
+.liLista{
+    list-style: none;
+    float: right;
+    z-index: 3;
+    position: relative;
+}
+.botonesIdiomas{
     border: none;
     background: transparent;
     border: 0px;
     padding: 0px;
     margin: 0px;
-    }
-    .iconoIdiomas{
-        border:0px;
-        padding:0px;
-        margin: 0px;
-        height: 50%;
-        width: 50%; 
-    }
+}
+.iconoIdiomas{
+    border:0px;
+    padding:0px;
+    margin: 0px;    
+    height: 70%;
+    width: 70%; 
+}
 
-
+/* ESTOS BOTONES HAY QUE TRASLADARLOS */
     .botonEnviar{
         visibility: hidden;
     }

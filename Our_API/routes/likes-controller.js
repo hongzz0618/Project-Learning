@@ -69,6 +69,7 @@ router.delete('/:id/:userID', (req, res, next) => {
     let idPublicacion = req.params.id;
     let idUsuario = req.params.userID;
     model.likes.destroy({ where: { Publicacion_idPublicacion: idPublicacion,Usuario_idUsuario:idUsuario } })
+    .then(item => res.json({ ok: true, data: item }))
         .catch(err => res.json({ ok: false, error: err }));
 });
 

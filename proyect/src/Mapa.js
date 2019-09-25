@@ -35,6 +35,7 @@ function Map(props) {
     
 
     return (
+
         <GoogleMap 
         onClick={e => {if(s) seleccion(e, selecCoords)}}
             defaultCenter={p}
@@ -73,6 +74,7 @@ function Map(props) {
             )}
         
         </GoogleMap>
+
     );
 }
 
@@ -111,8 +113,8 @@ export default class Mapa extends React.Component {
         
         return (
             <>
-            <Row className="cajaPrincipalPrincipal" style={{margin:'0px'}}>
-            <div style={{ height: this.props.altura, width: this.props.anchura }}>
+            
+            <div style={{ height: this.props.altura, width: this.props.anchura}}>
                 <WrappedMap
                     selecCoords={this.props.coordenadas}
                     selector={this.props.selector}
@@ -125,7 +127,6 @@ export default class Mapa extends React.Component {
                     
                 />
             </div>
-            </Row>
             </>
         );
     }

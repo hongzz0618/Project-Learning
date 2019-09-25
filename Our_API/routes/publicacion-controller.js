@@ -113,10 +113,10 @@ router.post('/foto', (req, res, next) => {
         // let idcontacto = req.body.idcontacto;
         // console.log(req.body);
         req.body.file = req.file.filename;
-
-        model.publicacion.create(req.body)
-            .then(elemento => res.json({ ok: true, data: elemento }))
-            .catch(err => res.json({ ok: false, error: err }));
+        console.log(req.body);
+        model.publicacion.create(req.body)   
+        .then(elemento => res.json({ ok: true, data: elemento }))
+        .catch(err => res.json({ ok: false, error: err }));
         // if (idcontacto){
         //     modelo.Contacto.findOne({ where: { id: idcontacto } })
         //         .then(item => {

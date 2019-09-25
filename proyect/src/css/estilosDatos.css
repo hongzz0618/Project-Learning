@@ -1,18 +1,5 @@
 .botonesEditarBorrarDatos{
-    float: right;
-
-}
-.cajaPrimariaRow{
-    height: 100%;
-    width: 60%;
-    float: left;
-    margin-top: 5%
-}
-.CajaSecundariaRow{
-    height: 100%;
-    width: 40%;
-    float: right;
-    margin-top: 5%;
+margin-left: 46%;
 }
 .imagenDatos{
     max-width: 100%;

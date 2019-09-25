@@ -3,6 +3,7 @@ import { Redirect } from 'react-router-dom';
 import { Translate, withLocalize } from "react-localize-redux";
 import { Button, Form, FormGroup, Label, Input, Row, Col, Container, Card, CardTitle, CardBody, CardImg, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 
+import { Button, Form, FormGroup, Label, Input, Container, Col, Row } from 'reactstrap';
 import "./css/estilosProducto.css";
 import { BrowserRouter, Link, Switch, Route, NavLink } from "react-router-dom";
 const API = "http://localhost:3000/api";
@@ -46,12 +47,11 @@ class Producto extends React.Component {
                 inser: 1
             });
 
-            // if (this.state.desactivados.indexOf(id)!==-1) {
-            //     return;
-            // }
+         if (this.state.desactivados.indexOf(id)!==-1) {
+                return;
+            }
 
-            // this.setState({desactivados: [...this.state.desactivados, id]});
-
+            this.setState({desactivados: [...this.state.desactivados, id]});
             let contacto = {
                 Usuario_idUsuario: this.state.usuarioActual,
                 Publicacion_idPublicacion: id,
@@ -118,14 +118,14 @@ class Producto extends React.Component {
 
         let bbdd = this.state.publicacion.map(el => <>
 
-
+            <Col xs="12" sm="6" md="4" xl="3">
             <div key={el.idPublicacion} className="cajaProducto" >
 
                 <div>
-                    <i className="corazonProducto far fa-heart" onClick={() => this.insertLike(el.idPublicacion)} onChange={this.handleInputChange}>{el.numLikes}</i>
+                    <i style={ (this.state.desactivados.indexOf(el.idPublicacion)!==-1) ? {Color:"red"} : {Color:"grey"}} className="corazonProducto far fa-heart" onClick={() => this.insertLike(el.idPublicacion)} onChange={this.handleInputChange}>{el.numLikes}</i>
                 </div>
                 <NavLink className="navProducto" to={"/datos_bbdd/" + el.idPublicacion}>
-                    <center>
+                    
                         <div>
                             {el.file ? <img className="imagenProducto" src={'http://localhost:3000/img/' + el.file} alt="xx" /> : "No foto"}
                         </div>
@@ -137,12 +137,13 @@ class Producto extends React.Component {
 
                         <form>
 
-                            <p className="comentariosProducto"><img src="https://img.icons8.com/plasticine/100/000000/comments.png" width="40%" />({el.numComent})</p>
+                            {/* <p className="comentariosProducto"><img src="https://img.icons8.com/plasticine/100/000000/comments.png" width="40%" />({el.numComent})</p> */}
                         </form>
-                    </center>
+                    
 
                 </NavLink>
             </div>
+            </Col>
 
         </>);
 
@@ -175,33 +176,20 @@ let bbdd_search = this.state.publicacion_search.map(el => <><div key={el.idPubli
         return (
             <>
 
-
-                <center>
-                    <Link className="botonProductoPublicar btn btn-secondary" to="/new_publicacion"><Translate id="global.nuevaPublicacion" /></Link>
-
-                </center>
-                <Container>
-                    <form onSubmit={this._handleSubmit} className="medium-margin-bottom">
-                        <div className="field has-addons">
-                            <div className="control">
-                                <input
-                                    autoFocus
-                                    onChange={this._handleChange}
-                                    required
-                                    type="text"
-                                    value={this.state.inputMovie}
-                                />
-                            </div>
-                            <div className="control">
-                                <button className="button is-info" type="submit">
-                                    Search
-						</button>
-                            </div>
-                        </div>
-                    </form>
+                <Container fluid>
+                <Row>
+                <Col xs="auto" lg="auto">
+                <Link className="botonProductoPublicar btn btn-secondary" to="/new_publicacion"><Translate id="global.nuevaPublicacion" /></Link>
+                </Col>
+                </Row>
+                <Row>
+               
+                 
+                     {bbdd}
+                 
+                
+                 </Row>
                 </Container>
-                {bbdd_search}
-                {bbdd}
 
 
 

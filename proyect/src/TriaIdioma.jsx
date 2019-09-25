@@ -12,15 +12,15 @@ class TriaIdioma extends React.Component {
     let activeLanguage = this.props.activeLanguage;
 
     return (
-      <ul className="selector">
-        {languages.map(lang => (
-          <li className="liLista" key={lang.code}>
+      <div className="selector editar">
+        {languages.map(lang => (  
+          <div className="liLista" key={lang.code}>
             <button className="botonesIdiomas" onClick={() => this.props.setActiveLanguage(lang.code)}>
               {lang.name}
             </button>
-          </li>
+          </div>
         ))}
-      </ul>
+      </div>
     );
   }
 }

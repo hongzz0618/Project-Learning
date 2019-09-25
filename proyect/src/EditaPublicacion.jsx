@@ -4,6 +4,7 @@ import { Redirect } from 'react-router-dom';
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import { Row, Col } from 'reactstrap';
 import axios from 'axios';
+import Mapa from './Mapa';
 import "./estilosBotonesIdiomas.css";
 import "./formularioNuevaPublicacion.css";
 import "./estilosBotonesIdiomas.css";
@@ -17,15 +18,21 @@ class EditaPublicacion extends Component {
     constructor(props) {
         super(props);
 
-        this.state = { loading: true,loading: false, selectedFile: false,  };
+        this.state = { loading: true,loading: false, selectedFile: false, data: [{}], coords: "x,y"  };
 
         this.handleInputChange = this.handleInputChange.bind(this);
         this.tornar = this.tornar.bind(this);
         this.submit = this.submit.bind(this);
         this.onChangeHandler = this.onChangeHandler.bind(this);
         this.loadData = this.loadData.bind(this);
-
+        this.coordenadas = this.coordenadas.bind(this);
     }
+
+    coordenadas(e) {
+        let c = e.latLng.toJSON();
+        this.setState({ coords: c, data: [{ 'idPublicacion': 99, 'ubicacion_latitud': c.lat.toString(), 'ubicacion_longitud': c.lng.toString() }] });
+        console.log("arriba",this.state.coords, this.state.data);
+      }
 
     componentDidMount() {
         this.loadData();
@@ -58,8 +65,7 @@ class EditaPublicacion extends Component {
                     Info_EN: data.Info_EN,
                     Info_CH: data.Info_CH,
                     file: data.file,
-                    ubicacion_latitud: data.ubicacion_latitud,
-                    ubicacion_longitud: data.ubicacion_longitud
+                    data: [{idPublicacion:data.idPublicacion , ubicacion_latitud: data.ubicacion_latitud, ubicacion_longitud: data.ubicacion_longitud}]
                 }))
             .then(() => this.setState({ loading: false }))
             .catch(err => console.log(err));
@@ -84,8 +90,8 @@ class EditaPublicacion extends Component {
         const data = new FormData() 
         data.append('file', this.state.selectedFile);
      
-        data.append('ubicacion_latitud', this.state.ubicacion_latitud);
-        data.append('ubicacion_longitud', this.state.ubicacion_longitud);
+        data.append('ubicacion_latitud', this.state.data[0].ubicacion_latitud);
+        data.append('ubicacion_longitud', this.state.data[0].ubicacion_longitud);
         data.append('precio', this.state.precio);
         data.append('Info_ES', this.state.Info_ES);
         data.append('Info_EN', this.state.Info_EN);
@@ -178,7 +184,7 @@ tornar() {
 
                         <Col sm="6">
                             <FormGroup>
-                                <Label for="nombre_ESInput" className="textoPublicacion"><Translate id="global.nombrePublicacion" /></Label>
+                                <Label for="nombre_ESInput" className="textoPublicacion"><Translate id="global.nombreEspañolPublicacion" /></Label>
                                 <Input type="text" name="nombre_ES" id="nombre_ESInput"
                                     value={this.state.nombre_ES}
                                     onChange={this.handleInputChange} required />
@@ -187,7 +193,7 @@ tornar() {
 
                         <Col sm="6">
                             <FormGroup>
-                                <Label for="nombre_ENInput" className="textoPublicacion"><Translate id="global.nombrePublicacion" /></Label>
+                                <Label for="nombre_ENInput" className="textoPublicacion"><Translate id="global.nombreInglesPublicacion" /></Label>
                                 <Input type="text" name="nombre_EN" id="nombre_ENInput"
                                     value={this.state.nombre_EN}
                                     onChange={this.handleInputChange} required />
@@ -195,7 +201,7 @@ tornar() {
                         </Col>
                         <Col sm="6">
                             <FormGroup>
-                                <Label for="nombre_CHInput" className="textoPublicacion"><Translate id="global.nombrePublicacion" /></Label>
+                                <Label for="nombre_CHInput" className="textoPublicacion"><Translate id="global.nombreChinoPublicacion" /></Label>
                                 <Input type="text" name="nombre_CH" id="nombre_CHInput"
                                     value={this.state.nombre_CH}
                                     onChange={this.handleInputChange} required />
@@ -213,7 +219,7 @@ tornar() {
                      
                         <Col sm="6">
                             <FormGroup>
-                                <Label for="Info_ESInput" className="textoPublicacion"><Translate id="global.informacionPublicacion" /></Label>
+                                <Label for="Info_ESInput" className="textoPublicacion"><Translate id="global.informacionEspañolPublicacion" /></Label>
                                 <Input type="text" name="Info_ES" id="Info_ESInput"
                                     value={this.state.Info_ES}
                                     onChange={this.handleInputChange} />
@@ -222,7 +228,7 @@ tornar() {
 
                         <Col sm="6">
                             <FormGroup>
-                                <Label for="Info_ENInput" className="textoPublicacion"><Translate id="global.informacionPublicacion" /></Label>
+                                <Label for="Info_ENInput" className="textoPublicacion"><Translate id="global.informacionInglesPublicacion" /></Label>
                                 <Input type="text" name="Info_EN" id="Info_ENInput"
                                     value={this.state.Info_EN}
                                     onChange={this.handleInputChange} />
@@ -231,7 +237,7 @@ tornar() {
 
                         <Col sm="6">
                             <FormGroup>
-                                <Label for="Info_CHInput" className="textoPublicacion"><Translate id="global.informacionPublicacion" /></Label>
+                                <Label for="Info_CHInput" className="textoPublicacion"><Translate id="global.informacionChinoPublicacion" /></Label>
                                 <Input type="text" name="Info_CH" id="Info_CHInput"
                                     value={this.state.Info_CH}
                                     onChange={this.handleInputChange} />
@@ -247,8 +253,11 @@ tornar() {
                             </FormGroup>
                         </Col>
 
-
-                    </Row>
+                        <Col sm="6">
+                        
+                        <Mapa datos={this.state.data} altura='400px' anchura='400px' selector={true} coordenadas={this.coordenadas} />
+                        </Col>
+                    </Row>  
 
 
                 </Form>
