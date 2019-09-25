@@ -23,11 +23,12 @@ function Map(props) {
         fullscreenControl: false
     };
     
-    console.log("AQUI",datos[0].ubicacion_latitud,datos[0].ubicacion_longitud);
+    console.log("AQUI",datos[0].ubicacion_latitud*1,datos[0].ubicacion_longitud*1);
     return (
         
         <GoogleMap 
             defaultCenter={{lat:datos[0].ubicacion_latitud*1,lng:datos[0].ubicacion_longitud*1}}
+            center={{lat:datos[0].ubicacion_latitud*1,lng:datos[0].ubicacion_longitud*1}}
             defaultZoom={15}
             defaultOptions={MapOptions}
         >
@@ -72,16 +73,15 @@ export default class Mapa extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            coordenadas : {lat:0,lng:0}
+            coordenadas : {lat:this.props.datos[0].ubicacion_latitud*1,lng:this.props.datos[0].ubicacion_longitud*1}
         }
     }
-
-
 
 
     render() {
 
         const url = `https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=${REACT_APP_GOOGLE_KEY}`;
+       
         return (
             <>
             
