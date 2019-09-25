@@ -182,13 +182,11 @@ let bbdd_search = this.state.publicacion_search.map(el => <><div key={el.idPubli
 
                 <Container fluid>
                 <Row>
-                <Col xs="auto" lg="auto">
+                <Col xs="auto" lg="auto">  
                 <Link className="botonProductoPublicar btn btn-secondary" to="/new_publicacion"><Translate id="global.nuevaPublicacion" /></Link>
                 </Col>
-                </Row>
-                <Row>
-              
-                    <form onSubmit={this._handleSubmit} className="medium-margin-bottom">
+                <Col>
+                <form onSubmit={this._handleSubmit} className="medium-margin-bottom">
                         <div className="field has-addons">
                             <div className="control">
                                 <input
@@ -202,12 +200,14 @@ let bbdd_search = this.state.publicacion_search.map(el => <><div key={el.idPubli
                             <div className="control">
                                 <button className="button is-info" type="submit">
                                     Search
-						</button>
-                    
+						        </button>
                             </div>
                         </div>
                     </form>
-          
+                    </Col>
+                </Row>
+                <Row>
+            
                  {bbdd_search}
                      {(this.state.buscando) ? <></> : bbdd}
                 
