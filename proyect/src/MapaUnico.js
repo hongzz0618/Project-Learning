@@ -4,24 +4,15 @@ import { Link } from "react-router-dom";
 import './paginaPrincipal.css';
 
 
-
 const mapa = Map;
 
 const REACT_APP_GOOGLE_KEY = "AIzaSyC4g4B7cWdRTVvNkHJ8TjLZBlvr5IK-GtQ";
 
- 
-
-function seleccion(e, s){
-    // console.log(e.latLng.toJSON())
-    s(e);
-    return e.latLng.toJSON();
-}
 
 function Map(props) {
-    const selecCoords = props.selecCoords;
+
     const datos = props.datos;
-    const p = props.posicion;
-    const s = props.selector;
+
     const [selectedItem, setSelectedItem] = React.useState(null);
     const  MapOptions = {
         zoomControl: true,
@@ -32,15 +23,13 @@ function Map(props) {
         fullscreenControl: false
     };
     
-
+    console.log("AQUI",datos[0].ubicacion_latitud,datos[0].ubicacion_longitud);
     return (
-
+        
         <GoogleMap 
-        onClick={e => {if(s) seleccion(e, selecCoords)}}
-            defaultCenter={p}
-            defaultZoom={10}
+            defaultCenter={{lat:datos[0].ubicacion_latitud*1,lng:datos[0].ubicacion_longitud*1}}
+            defaultZoom={15}
             defaultOptions={MapOptions}
- 
         >
 
             {datos.map((el) => (
@@ -54,7 +43,7 @@ function Map(props) {
                 />
             ))} 
 
-            {selectedItem && !s &&(
+            {selectedItem &&(
                 <InfoWindow
                     onCloseClick={() => {
                         setSelectedItem(null);
@@ -65,9 +54,7 @@ function Map(props) {
                     }}
                 >
                     <div>
-                        <h2>{selectedItem.nombre_ES}</h2>
-                        <Link to={'/datos_bbdd/'+selectedItem.idPublicacion} className="btn btn-danger" >Ver más</Link>
-                        
+                        <h2>{selectedItem.nombre_ES}</h2>                
                     </div>
                 </InfoWindow>
             )}
@@ -87,24 +74,10 @@ export default class Mapa extends React.Component {
         this.state = {
             coordenadas : {lat:0,lng:0}
         }
-
-        this.iniPos = this.iniPos.bind(this);
-        this.iniPos();
     }
 
 
 
-    iniPos(){
-
-        var options = {
-            enableHighAccuracy: true,
-            timeout: 60000,
-            maximumAge: 0
-          };        
-          
-        navigator.geolocation.getCurrentPosition((pos) => {this.setState({coordenadas:{lat:pos.coords.latitude,lng:pos.coords.longitude}})},() => {this.setState({coordenadas:{lat:0,lng:0}})}, options);
-
-    }
 
     render() {
 
@@ -114,10 +87,7 @@ export default class Mapa extends React.Component {
             
             <div style={{ height: this.props.altura, width: this.props.anchura}}>
                 <WrappedMap
-                    selecCoords={this.props.coordenadas}
-                    selector={this.props.selector}
                     datos = {this.props.datos}
-                    posicion = {this.state.coordenadas}
                     googleMapURL={url}
                     loadingElement={<div style={{ height: '100%' }} />}
                     containerElement={<div style={{ height: '100vh' }} />}
