@@ -1,8 +1,9 @@
 import React from "react";
 import { Redirect } from 'react-router-dom';
-import { Button, Form, FormGroup, Label, Input, Row, Col, Container, Card, CardTitle, CardBody, CardImg, Modal, ModalHeader, ModalBody, ModalFooter  } from 'reactstrap';
+import { Button, Form, FormGroup, Label, Input, Row, Col, Container, Card, CardTitle, CardBody, CardImg, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import "./css/estilosDatos.css";
 import { Translate, withLocalize } from "react-localize-redux";
+import Mapa from './MapaUnico';
 
 
 const URL = "http://localhost:3000/api";
@@ -23,10 +24,10 @@ class Datos_bbdd extends React.Component {
     }
     toggle() {
         this.setState(prevState => ({
-          modal: !prevState.modal
+            modal: !prevState.modal
         }));
-      }
-      
+    }
+
     componentDidMount() {//funcion de react 
         this.loadData();
     }
@@ -93,7 +94,7 @@ class Datos_bbdd extends React.Component {
 
         this.setState({ comentario: "" });
 
-        
+
 
 
     }
@@ -103,7 +104,7 @@ class Datos_bbdd extends React.Component {
             return <h1>Cargando datos...</h1>
         }
 
-      
+
         if (this.state.aEditar) {
             return <Redirect to={"/edit_publicacion/" + this.state.aEditar} />
         }
@@ -111,14 +112,12 @@ class Datos_bbdd extends React.Component {
             return <Redirect to="/producto" />
         }
         let datosComent = this.state.coment.map(el => <div>{el.comentario}</div>);
-        console.log(this.state.coment);
-
 
         // this.props.activeLanguage.code ha sido "inyectado" en este componente y lo podemos utilizar
         // gracias al withLocalize(...) de abajo del todo...
         let idioma_actual = this.props.activeLanguage.code;
-        let campo_nombre = "nombre_"+idioma_actual.toUpperCase();
-        let campo_info = "Info_"+idioma_actual.toUpperCase();
+        let campo_nombre = "nombre_" + idioma_actual.toUpperCase();
+        let campo_info = "Info_" + idioma_actual.toUpperCase();
 
 
         let xxx = this.state.publicacion

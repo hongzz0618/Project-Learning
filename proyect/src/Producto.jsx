@@ -14,11 +14,12 @@ class Producto extends React.Component {
         super(props);
         this.state = {
             publicacion: [], like: 0, comentario: 0, inser: 0,
-            desactivados: [], usuarioActual: 1,
+            desactivados: [], usuarioActual: 1, inputMovie: '',publicacion_search: []
         };
         this.loadData = this.loadData.bind(this);
         this.insertLike = this.insertLike.bind(this);
         this.handleInputChange = this.handleInputChange.bind(this);
+
     }
     componentDidMount() {//funcion de react 
         this.loadData();
@@ -32,6 +33,9 @@ class Producto extends React.Component {
         this.setState({
             [name]: value
         });
+    }
+    _handleChange = (e) => {
+        this.setState({ inputMovie: e.target.value })
     }
 
 
@@ -86,6 +90,17 @@ class Producto extends React.Component {
 
 
     }
+    _handleSubmit = (e) => {
+        e.preventDefault();
+
+        fetch(API + "/publicacion/nombre/"+this.state.inputMovie)
+            .then(res => res.json())
+            .then(publicacions => this.setState({ publicacion_search: publicacions.data }))
+            .catch(err => console.log(err));
+
+
+    }
+
 
     render() {
         if (!this.state.publicacion || !this.props.activeLanguage) {
@@ -132,6 +147,32 @@ class Producto extends React.Component {
             </Col>
 
         </>);
+
+let bbdd_search = this.state.publicacion_search.map(el => <><div key={el.idPublicacion} className="cajaProducto" >
+        <div>
+            <i className="corazonProducto far fa-heart" onClick={() => this.insertLike(el.idPublicacion)} onChange={this.handleInputChange}>{el.numLikes}</i>
+        </div>
+        <NavLink className="navProducto" to={"/datos_bbdd/" + el.idPublicacion}>
+            <center>
+                <div>
+                    {el.file ? <img className="imagenProducto" src={'http://localhost:3000/img/' + el.file} alt="xx" /> : "No foto"}
+                </div>
+                <h3>{el[campo_nombre]}</h3>
+                <p>{el.precio}</p>
+
+                <div className="textoProducto">{el[campo_info]}</div> <br />
+
+
+                <form>
+
+                    <p className="comentariosProducto"><img src="https://img.icons8.com/plasticine/100/000000/comments.png" width="40%" />({el.numComent})</p>
+                </form>
+            </center>
+
+        </NavLink>
+    </div>
+
+</>);
 
         return (
             <>
