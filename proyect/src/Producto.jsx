@@ -12,7 +12,8 @@ class Producto extends React.Component {
         super(props);
         this.state = {
             publicacion: [], like: 0, comentario: 0, inser: 0,
-            desactivados: [], usuarioActual: 1, inputMovie: '',publicacion_search: []
+            desactivados: [], usuarioActual: 1, inputMovie: '',publicacion_search: [],
+            buscando: false
         };
         this.loadData = this.loadData.bind(this);
         this.insertLike = this.insertLike.bind(this);
@@ -93,11 +94,12 @@ class Producto extends React.Component {
 
         fetch(API + "/publicacion/nombre/"+this.state.inputMovie)
             .then(res => res.json())
-            .then(publicacions => this.setState({ publicacion_search: publicacions.data }))
+            .then(publicacions => this.setState({ buscando: true, publicacion_search: publicacions.data }))
             .catch(err => console.log(err));
 
 
     }
+
 
 
     render() {
@@ -198,12 +200,14 @@ let bbdd_search = this.state.publicacion_search.map(el => <><div key={el.idPubli
                                 <button className="button is-info" type="submit">
                                     Search
 						</button>
+                    
                             </div>
                         </div>
                     </form>
+          
                  {bbdd_search}
-                     {bbdd}
-                 
+                     {(this.state.buscando) ? <></> : bbdd}
+                
                 
                  </Row>
                 </Container>
