@@ -1,6 +1,7 @@
 import React from "react";
 import { Translate, withLocalize } from "react-localize-redux";
-import { Button, Form, FormGroup, Label, Input, Container, Col, Row } from 'reactstrap';
+import { Button, Form, FormGroup, Label, Input, Row, Col, Container, Card, CardTitle, CardBody, CardImg, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+
 import "./css/estilosProducto.css";
 import { Redirect ,BrowserRouter, Link, Switch, Route, NavLink } from "react-router-dom";
 
@@ -14,7 +15,8 @@ class Producto extends React.Component {
         super(props);
         this.state = {
             publicacion: [], like: 0, comentario: 0, inser: 0,
-            desactivados: [], usuarioActual: 1, inputMovie: '',publicacion_search: []
+            desactivados: [], usuarioActual: 1, inputMovie: '',publicacion_search: [],
+            buscando: false
         };
         this.loadData = this.loadData.bind(this);
         this.insertLike = this.insertLike.bind(this);
@@ -95,11 +97,12 @@ class Producto extends React.Component {
 
         fetch(API + "/publicacion/nombre/"+this.state.inputMovie)
             .then(res => res.json())
-            .then(publicacions => this.setState({ publicacion_search: publicacions.data }))
+            .then(publicacions => this.setState({ buscando: true, publicacion_search: publicacions.data }))
             .catch(err => console.log(err));
 
 
     }
+
 
 
     render() {
@@ -184,10 +187,30 @@ let bbdd_search = this.state.publicacion_search.map(el => <><div key={el.idPubli
                 </Col>
                 </Row>
                 <Row>
-               
-                 
-                     {bbdd}
-                 
+              
+                    <form onSubmit={this._handleSubmit} className="medium-margin-bottom">
+                        <div className="field has-addons">
+                            <div className="control">
+                                <input
+                                    autoFocus
+                                    onChange={this._handleChange}
+                                    required
+                                    type="text"
+                                    value={this.state.inputMovie}
+                                />
+                            </div>
+                            <div className="control">
+                                <button className="button is-info" type="submit">
+                                    Search
+						</button>
+                    
+                            </div>
+                        </div>
+                    </form>
+          
+                 {bbdd_search}
+                     {(this.state.buscando) ? <></> : bbdd}
+                
                 
                  </Row>
                 </Container>
