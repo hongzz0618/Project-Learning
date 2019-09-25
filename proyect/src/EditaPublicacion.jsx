@@ -88,7 +88,12 @@ class EditaPublicacion extends Component {
         e.preventDefault();
         let itemId = this.props.match.params.idPublicacion;
         const data = new FormData() 
-        data.append('file', this.state.selectedFile);
+        if (this.state.selectedFile) {
+            data.append('file', this.state.selectedFile);
+        }else{
+            data.append('file', this.state.file);
+        }
+        
      
         data.append('ubicacion_latitud', this.state.data[0].ubicacion_latitud);
         data.append('ubicacion_longitud', this.state.data[0].ubicacion_longitud);
@@ -234,6 +239,7 @@ tornar() {
                                 <Label for="imgInput" className="textoPublicacion"><Translate id="global.imagenPublicacion" /><img className="imagenBotonEnviar" src="https://img.icons8.com/ultraviolet/40/000000/upload-to-ftp.png" /></Label>
                                 <Input type="file" name="file" id="imgInput"
                                     onChange={this.onChangeHandler} className="botonEnviar" />
+                                <input type="hidden" value={this.state.file} />
 
                             </FormGroup>
                         </Col>
