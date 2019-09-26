@@ -10,6 +10,7 @@ import Mapa from './Mapa';
 import { Translate, withLocalize } from "react-localize-redux";
 // ESTE CSS ES PARA EL INPUT DE ABAJO
 import "./formularioNuevaPublicacion.css";
+import Menu from "./Menu";
 
 const API = "http://localhost:5000/api";
 
@@ -130,7 +131,7 @@ class NovaPublicacio extends React.Component {
 
         return (
             <>
-
+<Menu />
                 <Form className="formPublicacion" onSubmit={this.submit}>
 
                     <div className="containerForm">

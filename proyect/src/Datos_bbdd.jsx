@@ -4,6 +4,7 @@ import { Button, Form, FormGroup, Label, Input, Row, Col, Container, Card, CardT
 import "./css/estilosDatos.css";
 import { Translate, withLocalize } from "react-localize-redux";
 import Mapa from './MapaUnico';
+import Menu from "./Menu";
 
 
 const URL = "http://localhost:5000/api";
@@ -90,42 +91,42 @@ class Datos_bbdd extends React.Component {
             .then(respuesta => respuesta.json())
             .then(() => this.loadData())
             .catch(err => console.log(err))
-
-
-        this.setState({ comentario: "" });
-
-
-
-
-    }
-
-    render() {
-        if (!this.state.publicacion || !this.props.activeLanguage) {
-            return <h1>Cargando datos...</h1>
+            
+            
+            this.setState({ comentario: "" });
+            
+            
+            
+            
         }
-
-
-        if (this.state.aEditar) {
-            return <Redirect to={"/edit_publicacion/" + this.state.aEditar} />
-        }
-        if (this.state.toList) {
-            return <Redirect to="/producto" />
-        }
-        let datosComent = this.state.coment.map(el => <div>{el.comentario}</div>);
-
-        // this.props.activeLanguage.code ha sido "inyectado" en este componente y lo podemos utilizar
-        // gracias al withLocalize(...) de abajo del todo...
-        let idioma_actual = this.props.activeLanguage.code;
-        let campo_nombre = "nombre_" + idioma_actual.toUpperCase();
-        let campo_info = "Info_" + idioma_actual.toUpperCase();
-
-
-        let xxx = this.state.publicacion
-
-        return (
-
-            /*informacion en castellano ingles y chino*/
-            <Container fluid>
+        
+        render() {
+            if (!this.state.publicacion || !this.props.activeLanguage) {
+                return <h1>Cargando datos...</h1>
+            }
+            
+            
+            if (this.state.aEditar) {
+                return <Redirect to={"/edit_publicacion/" + this.state.aEditar} />
+            }
+            if (this.state.toList) {
+                return <Redirect to="/producto" />
+            }
+            let datosComent = this.state.coment.map(el => <div>{el.comentario}</div>);
+            
+            // this.props.activeLanguage.code ha sido "inyectado" en este componente y lo podemos utilizar
+            // gracias al withLocalize(...) de abajo del todo...
+            let idioma_actual = this.props.activeLanguage.code;
+            let campo_nombre = "nombre_" + idioma_actual.toUpperCase();
+            let campo_info = "Info_" + idioma_actual.toUpperCase();
+            
+            
+            let xxx = this.state.publicacion
+            
+            return (
+                /*informacion en castellano ingles y chino*/
+                <Container fluid>
+                <Menu />
                 <Row className="cajaPrimariaRow">
 
                     <Col sm="12" lg="12">
@@ -143,7 +144,7 @@ class Datos_bbdd extends React.Component {
 
                     <Col sm="6" lg="6">
                         <Card className>
-                            {xxx.file ? <img alt="no img" className="imagenDatos" src={'http://localhost:5000/img/' + xxx.file}  /> : "No foto"}
+                            {xxx.file ? <img alt="no img" className="imagenDatos" src={'http://localhost:5000/img/' + xxx.file} /> : "No foto"}
 
                             <CardTitle><h1>{this.state.publicacion[campo_nombre]}</h1></CardTitle>
                             <CardBody>
@@ -153,32 +154,32 @@ class Datos_bbdd extends React.Component {
                             {/* DATOS DE CONTACTO Y REDES SOCIALES. */}
                             <div>
                                 <img className="contactoDatos" alt="no img" src="https://img.icons8.com/color/48/000000/my-topic.png" onClick={this.toggle}>{this.props.buttonLabel}</img>
-                                <Modal  isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
+                                <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
                                     <ModalHeader className="modalDatos" toggle={this.toggle}>Redes sociales</ModalHeader>
                                     <ModalBody>
-                                    <div className="redesSocialesModal">
-					                <a href="#" class="tm-social-link">
-					                  <i class="fab fa-facebook"></i>
-					                </a>
+                                        <div className="redesSocialesModal">
+                                            <a href="#" class="tm-social-link">
+                                                <i class="fab fa-facebook"></i>
+                                            </a>
 
-					                <a href="#" class="tm-social-link">
-					                  <i class="fab fa-twitter"></i>
-					                </a>
+                                            <a href="#" class="tm-social-link">
+                                                <i class="fab fa-twitter"></i>
+                                            </a>
 
-					                <a href="#" class="tm-social-link">
-					                  <i class="fab fa-instagram"></i>
-					                </a>
+                                            <a href="#" class="tm-social-link">
+                                                <i class="fab fa-instagram"></i>
+                                            </a>
 
-					                <a href="#" class="tm-social-link">
-					                  <i class="fab fa-pinterest"></i>
-					                </a>
-                                    </div>
-                                    <div className="informacionUsuarioModal">
-                                        <h5>Usuario:</h5>
-                                        <h5>Telefono: </h5>
-                                        <h5>Email:  </h5>
+                                            <a href="#" class="tm-social-link">
+                                                <i class="fab fa-pinterest"></i>
+                                            </a>
+                                        </div>
+                                        <div className="informacionUsuarioModal">
+                                            <h5>Usuario:</h5>
+                                            <h5>Telefono: </h5>
+                                            <h5>Email:  </h5>
 
-                                    </div>
+                                        </div>
 
                                     </ModalBody>
                                     <ModalFooter>
@@ -189,7 +190,7 @@ class Datos_bbdd extends React.Component {
                             </div>
                         </Card>
                     </Col>
-                    
+
 
 
 
@@ -214,9 +215,9 @@ class Datos_bbdd extends React.Component {
                             <Button type="submit" className="botonPublicarComentarioDatos" size='sm' color="secondary" >{<Translate id="global.publicarComentarioDatos" />}</Button>
 
                         </Form>
-                    <div className="mapaDatos">
-                    <Mapa datos={[this.state.publicacion]} pruebaMapa="400px" altura='100%' anchura='100%' />
-                    </div>
+                        <div className="mapaDatos">
+                            <Mapa datos={[this.state.publicacion]} pruebaMapa="400px" altura='100%' anchura='100%' />
+                        </div>
                     </Col>
                 </Row>
             </Container>

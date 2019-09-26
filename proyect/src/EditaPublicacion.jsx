@@ -5,6 +5,7 @@ import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import { Row, Col } from 'reactstrap';
 import axios from 'axios';
 import Mapa from './Mapa';
+import Menu from "./Menu";
 
 import "./formularioNuevaPublicacion.css";
 
@@ -154,6 +155,7 @@ tornar() {
 
         return (
             <>
+            <Menu />
                 <Form className="formPublicacion" onSubmit={this.submit}>
                     <div className="containerForm">
                     <Row>

@@ -39,7 +39,15 @@
       "tituloContactanos": ["Contactanos","Contact us","联络我们"],
       "textoCorreo": ["Envia un correo a nuestro","Send an email to our","发送电子邮件给我们"],
       "email": ["Email","Email","电子邮件"],
-      "textoCorreoDos": ["Por cualquier duda.","For any questions.","如有任何疑问"]
+      "textoCorreoDos": ["Por cualquier duda.","For any questions.","如有任何疑问"],
+
+      "ESTAS_TRADUCCIONES_SON_DEL_MENU": ["none"],
+
+      "opciones": ["Opciones","Options","选项"],
+      "editarPerfil": ["Editar perfil","Edit profile","编辑个人资料"],
+      "misCursos": ["Mis cursos","My courses","我的课程"],
+      "salir": ["Cerrar sesión","Sign off",""]
+
 
 
 
