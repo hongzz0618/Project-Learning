@@ -1,6 +1,5 @@
 import React from 'react';
 import { GoogleMap, withScriptjs, withGoogleMap, Marker, InfoWindow} from "react-google-maps";
-import { Link } from "react-router-dom";
 import './paginaPrincipal.css';
 
 

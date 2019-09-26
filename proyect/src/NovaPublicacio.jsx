@@ -1,5 +1,5 @@
 
-import React, { Component } from 'react';
+import React from 'react';
 import { Redirect } from 'react-router-dom';
 
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
@@ -28,7 +28,7 @@ class NovaPublicacio extends React.Component {
             Info_ES: '',
             Info_EN: '',
             Info_CH: '',
-            file: '',loading: false, selectedFile: false, itemId: this.props.match.params.itemId,
+            file: '', loading: false, selectedFile: false, itemId: this.props.match.params.itemId,
             data: [],
             coords: "x,y"
         };
@@ -42,16 +42,16 @@ class NovaPublicacio extends React.Component {
     coordenadas(e) {
         let c = e.latLng.toJSON();
         this.setState({ coords: c, data: [{ 'idPublicacion': 99, 'ubicacion_latitud': c.lat.toString(), 'ubicacion_longitud': c.lng.toString() }] });
-        console.log("arriba",this.state.coords, this.state.data);
-      }
-    
+        
+    }
 
-    onChangeHandler = event=>{
+
+    onChangeHandler = event => {
         this.setState({
-          selectedFile: event.target.files[0],
-          loaded: 0,
+            selectedFile: event.target.files[0],
+            loaded: 0,
         })
-      }
+    }
 
     handleInputChange(event) {
         const target = event.target;
@@ -67,28 +67,33 @@ class NovaPublicacio extends React.Component {
 
     submit(e) {
         e.preventDefault();
+        if (!this.state.data[0]) alert("Es necesario específicar la dirección");
+        else {
+            
+            if (this.state.selectedFile===false) alert("Es necesaria una imagen");
+            else {
+                const data = new FormData()
+                data.append('file', this.state.selectedFile);
 
-        const data = new FormData() 
-        data.append('file', this.state.selectedFile);
-
-        data.append('ubicacion_latitud', this.state.data[0].ubicacion_latitud);
-        data.append('ubicacion_longitud', this.state.data[0].ubicacion_longitud);
-        data.append('precio', this.state.precio);
-        data.append('Info_ES', this.state.Info_ES);
-        data.append('Info_EN', this.state.Info_EN);
-        data.append('Info_CH', this.state.Info_CH);
-        data.append('nombre_ES', this.state.nombre_ES);
-        data.append('nombre_EN', this.state.nombre_EN);
-        data.append('nombre_CH', this.state.nombre_CH);
-        axios.post(API+"/publicacion/foto", data)
-        .then(res => { 
-            console.log(res);
-            this.setState({toList: true });
-        })
-
+                data.append('ubicacion_latitud', this.state.data[0].ubicacion_latitud);
+                data.append('ubicacion_longitud', this.state.data[0].ubicacion_longitud);
+                data.append('precio', this.state.precio);
+                data.append('Info_ES', this.state.Info_ES);
+                data.append('Info_EN', this.state.Info_EN);
+                data.append('Info_CH', this.state.Info_CH);
+                data.append('nombre_ES', this.state.nombre_ES);
+                data.append('nombre_EN', this.state.nombre_EN);
+                data.append('nombre_CH', this.state.nombre_CH);
+                axios.post(API + "/publicacion/foto", data)
+                    .then(res => {
+                        console.log(res);
+                        this.setState({ toList: true });
+                    })
+            }
+        }
     }
 
-/* pestaña para que avise si quiere salir sin guardar*/
+    /* pestaña para que avise si quiere salir sin guardar*/
     tornar() {
         let mensaje;
         switch (this.props.activeLanguage.code) {
@@ -103,14 +108,14 @@ class NovaPublicacio extends React.Component {
                 mensaje = "退出而不保存?"
                 break;
 
-                default:
+            default:
                 break;
         }
         let resultado = window.confirm(mensaje);
-        if (resultado===true){this.setState({ toList: true })}
-        
+        if (resultado === true) { this.setState({ toList: true }) }
+
     }
-    
+
 
 
     render() {
@@ -120,115 +125,123 @@ class NovaPublicacio extends React.Component {
         if (this.state.toList) {
             return <Redirect to="/producto" />
         }
-        
+
         let datos = this.state.data;
 
         return (
             <>
-            
+
                 <Form className="formPublicacion" onSubmit={this.submit}>
 
+                    <div className="containerForm">
+                        <Row>
+                            <Col><h3 className="tituloPublicacion"><Translate id="global.nuevaPublicacion" /></h3></Col>
+                            <Col>
+                                <span className="float-right">
+                                    <Button style={{ margin: 2 }} type="button" onClick={this.tornar} className='' size='sm' color="danger" ><Translate id="global.salirPublicacion" /></Button>
+                                    {/*EN ESTOS BOTONES VA LA NOTIFICACION, TAMBIEN HAY QUE MODIFICAR EL IDIOMA */}
+                                    <Button type="submit" className='' size='sm' color="secondary" ><Translate id="global.publicarPublicacion" /></Button>
+                                </span>
+                            </Col>
+                        </Row>
 
-                    <Row>
-                        <Col><h3 className="tituloPublicacion"><Translate id="global.nuevaPublicacion"/></h3></Col>
-                        <Col>
-                            <span className="float-right">
-                                <Button style={{margin: 2}} type="button" onClick={this.tornar} className='' size='sm' color="danger" ><Translate id="global.salirPublicacion"/></Button>
-{/*EN ESTOS BOTONES VA LA NOTIFICACION, TAMBIEN HAY QUE MODIFICAR EL IDIOMA */}
-                                <Button type="submit" className='' size='sm' color="secondary" ><Translate id="global.publicarPublicacion" /></Button>
-                            </span>
-                        </Col>
-                    </Row>
 
+                        <Row>
+                            <Col sm="6">
+                                <FormGroup>
+                                    <Label for="nombre_ESInput" className="textoPublicacion"><Translate id="global.nombreEspañolPublicacion" /></Label>
+                                    <Input type="text" name="nombre_ES" id="nombre_ESInput"
+                                        value={this.state.nombre_ES}
+                                        onChange={this.handleInputChange} required />
+                                </FormGroup>
+                            </Col>
 
-                    <Row>
-                        <Col sm="6">
-                            <FormGroup>
-                                <Label for="nombre_ESInput" className="textoPublicacion"><Translate id="global.nombreEspañolPublicacion" /></Label>
-                                <Input type="text" name="nombre_ES" id="nombre_ESInput"
-                                    value={this.state.nombre_ES}
-                                    onChange={this.handleInputChange} required />
-                            </FormGroup>
-                        </Col>
+                            <Col sm="6">
+                                <FormGroup>
+                                    <Label for="nombre_ENInput" className="textoPublicacion"><Translate id="global.nombreInglesPublicacion" /></Label>
+                                    <Input type="text" name="nombre_EN" id="nombre_ENInput"
+                                        value={this.state.nombre_EN}
+                                        onChange={this.handleInputChange} required />
+                                </FormGroup>
+                            </Col>
+                            <Col sm="6">
+                                <FormGroup>
+                                    <Label for="nombre_CHInput" className="textoPublicacion"><Translate id="global.nombreChinoPublicacion" /></Label>
+                                    <Input type="text" name="nombre_CH" id="nombre_CHInput"
+                                        value={this.state.nombre_CH}
+                                        onChange={this.handleInputChange} required />
+                                </FormGroup>
+                            </Col>
+                            <Col sm="6">
+                                <FormGroup>
+                                    <Label for="precioInput" className="textoPublicacion"><Translate id="global.precioPublicacion" /></Label>
+                                    <Input type="text" name="precio" id="precioInput"
+                                        value={this.state.precio}
+                                        onChange={this.handleInputChange} required />
+                                </FormGroup>
+                            </Col>
 
-                        <Col sm="6">
-                            <FormGroup>
-                                <Label for="nombre_ENInput" className="textoPublicacion"><Translate id="global.nombreInglesPublicacion" /></Label>
-                                <Input type="text" name="nombre_EN" id="nombre_ENInput"
-                                    value={this.state.nombre_EN}
-                                    onChange={this.handleInputChange} required />
-                            </FormGroup>
-                        </Col>
-                        <Col sm="6">
-                            <FormGroup>
-                                <Label for="nombre_CHInput" className="textoPublicacion"><Translate id="global.nombreChinoPublicacion" /></Label>
-                                <Input type="text" name="nombre_CH" id="nombre_CHInput"
-                                    value={this.state.nombre_CH}
-                                    onChange={this.handleInputChange} required />
-                            </FormGroup>
-                        </Col>
-                        <Col sm="6">
-                            <FormGroup>
-                                <Label for="precioInput" className="textoPublicacion"><Translate id="global.precioPublicacion" /></Label>
-                                <Input type="text" name="precio" id="precioInput"
-                                    value={this.state.precio}
-                                    onChange={this.handleInputChange} />
-                            </FormGroup>
-                        </Col>
+                            <Col sm="6">
+                                <FormGroup>
+                                    <Label for="Info_ESInput" className="textoPublicacion"><Translate id="global.informacionEspañolPublicacion" /></Label>
+                                    <Input type="text" name="Info_ES" id="Info_ESInput"
+                                        value={this.state.Info_ES}
+                                        onChange={this.handleInputChange} required />
+                                </FormGroup>
+                            </Col>
 
-                        <Col sm="6">
-                            <FormGroup>
-                                <Label for="Info_ESInput" className="textoPublicacion"><Translate id="global.informacionEspañolPublicacion" /></Label>
-                                <Input type="text" name="Info_ES" id="Info_ESInput"
-                                    value={this.state.Info_ES}
-                                    onChange={this.handleInputChange} />
-                            </FormGroup>
-                        </Col>
+                            <Col sm="6">
+                                <FormGroup>
+                                    <Label for="Info_ENInput" className="textoPublicacion"><Translate id="global.informacionInglesPublicacion" /></Label>
+                                    <Input type="text" name="Info_EN" id="Info_ENInput"
+                                        value={this.state.Info_EN}
+                                        onChange={this.handleInputChange} required />
+                                </FormGroup>
+                            </Col>
 
-                        <Col sm="6">
-                            <FormGroup>
-                                <Label for="Info_ENInput" className="textoPublicacion"><Translate id="global.informacionInglesPublicacion" /></Label>
-                                <Input type="text" name="Info_EN" id="Info_ENInput"
-                                    value={this.state.Info_EN}
-                                    onChange={this.handleInputChange} />
-                            </FormGroup>
-                        </Col>
+                            <Col sm="6">
+                                <FormGroup>
+                                    <Label for="Info_CHInput" className="textoPublicacion"><Translate id="global.informacionChinoPublicacion" /></Label>
+                                    <Input type="text" name="Info_CH" id="Info_CHInput"
+                                        value={this.state.Info_CH}
+                                        onChange={this.handleInputChange} required />
+                                </FormGroup>
+                            </Col>
 
-                        <Col sm="6">
-                            <FormGroup>
-                                <Label for="Info_CHInput" className="textoPublicacion"><Translate id="global.informacionChinoPublicacion" /></Label>
-                                <Input type="text" name="Info_CH" id="Info_CHInput"
-                                    value={this.state.Info_CH}
-                                    onChange={this.handleInputChange} />
-                            </FormGroup>
-                        </Col>
-
-                        <Col sm="6">
-                            <FormGroup>
-                            <Label for="imgInput" className="textoPublicacion">
-                                    <Translate id="global.imagenPublicacion" />
-                                    <img className="botonSubirImagen" src="https://img.icons8.com/ultraviolet/40/000000/upload-to-ftp.png" />
+                            <Col sm="6">
+                                <FormGroup>
+                                    <Label for="imgInput" className="textoPublicacion">
+                                        <Translate id="global.imagenPublicacion" />
+                                        <img alt="subirImagen" className="botonSubirImagen" src="https://img.icons8.com/ultraviolet/40/000000/upload-to-ftp.png" />
                                     </Label>
-                                
-                                 {/* EL BOTON ESTA INVISIBLE Y LA IMAGEN HACE COMO BOTON */}
-                                <Input type="file" name="file" id="imgInput"
-                                    onChange={this.onChangeHandler} className="botonEnviar"/>
-                                   
-                            </FormGroup>
-                        </Col>
 
-                        <Col sm="6">
-                        
-                            <Mapa datos={datos} pruebaMapa="100%" altura='400px' anchura='100%' selector={true} coordenadas={this.coordenadas} />
+                                    {/* EL BOTON ESTA INVISIBLE Y LA IMAGEN HACE COMO BOTON */}
+                                    <Input type="file" name="file" id="imgInput"
+                                        onChange={this.onChangeHandler} className="botonEnviar" />
 
-                        </Col>
+                                </FormGroup>
+                            </Col>
 
 
+                            <Col sm='12' >
+                                <hr className='separador'>
+                                </hr>
+                            </Col>
+
+                        </Row>
+                        <Row>
+                            <Col sm="12">
+                                <h3 className="subtitulo">Dirección</h3>
+                                <Mapa datos={datos} pruebaMapa="100%" altura='400px' anchura='100%' selector={true} coordenadas={this.coordenadas} />
+
+                            </Col>
 
 
-                    </Row>
 
 
+                        </Row>
+
+                    </div>
                 </Form>
 
             </>

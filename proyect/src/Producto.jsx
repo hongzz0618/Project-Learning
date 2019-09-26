@@ -1,6 +1,6 @@
 import React from "react";
 import { Translate, withLocalize } from "react-localize-redux";
-import { Button, Form, FormGroup, Label, Input, Row, Col, Container, Card, CardTitle, CardBody, CardImg, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import { Button, Form, Input, Row, Col, Container } from 'reactstrap';
 import Menu from "./Menu.jsx";
 import "./css/estilosProducto.css";
 import { Redirect ,BrowserRouter, Link, Switch, Route, NavLink } from "react-router-dom";
