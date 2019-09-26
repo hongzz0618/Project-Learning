@@ -1,7 +1,7 @@
 import React from "react";
 import { Translate, withLocalize } from "react-localize-redux";
-import { Input, Row, Col, Container,Button, Form } from 'reactstrap';
-import Menu from './Menu';
+import { Button, Form, Input, Row, Col, Container } from 'reactstrap';
+import Menu from "./Menu.jsx";
 import "./css/estilosProducto.css";
 import {  Link, NavLink } from "react-router-dom";
 
@@ -157,10 +157,10 @@ if (this.state.inputMovie==="") {
         
 let bbdd_search = this.state.publicacion_search.map(el => <>
 <Col xs="12" sm="6" md="4" xl="3">
-<div key={el.nombre_ES} className="cajaProducto" >
-        <div>
-            <i className="corazonProducto far fa-heart" onClick={() => this.insertLike(el.idPublicacion)} onChange={this.handleInputChange}>{el.numLikes}</i>
-        </div>
+<div key={el.idPublicacion} className="cajaProducto" >
+        
+<i style={ (this.state.desactivados.indexOf(el.idPublicacion)!==-1) ? {color:"red"} : {color:"gray"}} className="corazonProducto fas fa-heart" onClick={() =>  this.insertLike(el.idPublicacion)} onChange={this.handleInputChange}>{el.numLikes}</i>
+        
         <NavLink className="navProducto" to={"/datos_bbdd/" + el.idPublicacion}>
             <center>
                 <div>
@@ -174,7 +174,7 @@ let bbdd_search = this.state.publicacion_search.map(el => <>
 
                 <form>
 
-                    <p className="comentariosProducto"><img src="https://img.icons8.com/plasticine/100/000000/comments.png" width="40%" alt="no img" />({el.numComent})</p>
+                <i className="comentariosDatos fas fa-comment-dots"  aria-hidden="true">({el.numComent})</i>
                 </form>
             </center>
 
@@ -199,12 +199,12 @@ let bbdd_search = this.state.publicacion_search.map(el => <>
                         <div className="field has-addons">
                             
                                 <Button size="sm" className="botonBuscar button is-info" type="submit">
-                                   Buscar
+                                   <Translate id="global.buscarProducto" />
 						        </Button>
                                 <Input 
                                     autoFocus
                                     onChange={this._handleChange}
-                         placeholder="Introduce para buscar un producto"
+                         
                                     type="text"
                                     value={this.state.inputMovie}
                                 />
@@ -217,7 +217,7 @@ let bbdd_search = this.state.publicacion_search.map(el => <>
                 <Row>
             
                 {(this.state.buscando) ?  bbdd_search : bbdd}
-                  {(this.state.publicacion_search.length>1 || this.state.buscando===false) ? "":<><h1>No existe el Producto introducido</h1></>}
+                  {(this.state.publicacion_search.length>1 || this.state.buscando===false) ? "":<><h1></h1></>}
                 
                 
                  </Row>

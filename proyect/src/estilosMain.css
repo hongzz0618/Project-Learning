@@ -1,13 +1,14 @@
 .logo{
-  margin-top: 3%;
+  margin-top: 10%;
   margin-bottom: 2%;
+
 }
 .tm-section.tm-section-small{
 margin-top: 3%;
 }
   .tm-containerPrimero {
     background-color: #e5e5e5;
-    margin-top: 5%;
+    margin-top: 10%;
     width: 80%;
 
 
@@ -173,4 +174,11 @@ a { transition: all 0.3s ease; }
     margin-bottom: 0;
     line-height: 1;
   }
+}
+.botonesSesion{
+float: right;
+  margin-right: 2%;
+  margin-top: 1%;
+  font-size: 10px;
+
 }

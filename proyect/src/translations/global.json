@@ -18,6 +18,7 @@
       "informacionChinoPublicacion": ["Información chino","Chinese information","中文信息"],
       "imagenPublicacion": ["Imagen","Image","图片"],
       "editarPublicacion": ["Editar publicación","Edit post","编辑部"],
+      "buscarProducto": ["Buscar curso","Search courses","搜索课程"],
 
       "ESTAS_TRADUCCIONES_SON_DE_DATOSBBDD.JSX": ["none"],
 
@@ -25,7 +26,24 @@
       "publicarComentarioDatos": ["Publicar comentario","Post Comment","发表评论"],
       "volverDatos": ["Volver","Return","回报"],
 
-      "ESTAS_TRADUCCIONES_SON_DE_PRODUCTOR.JSX": ["none"]
+      "ESTAS_TRADUCCIONES_SON_DE_PRODUCTOR.JSX": ["none"],
+
+      "ESTAS_TRADUCCIONES_SON_DE_PAGINAMAIN.JSX": ["none"],
+
+      "registrate": ["Registrate","Sing up","注册"],
+      "iniciarSesion": ["Iniciar sesion","Login","登入"],
+      "primerTextoCursos": ["Todos los cursos disponibles","All courses available","所有课程"],
+      "botonCursos": ["Cursos","Courses","课程"],
+      "segundoTextoMapa": ["Encuentra todo todo tipo de cursos disponibles, cerca tuyo. Nuestro maps te lo pondra fácil.","Find all kinds of courses available near you. Our map will facilitate it.","查找您附近的所有可用课程。 我们的地图将使您轻松"],
+      "botonCerca": ["Profesores cerca","Teachers nearby","亲密老师"],
+      "tituloContactanos": ["Contactanos","Contact us","联络我们"],
+      "textoCorreo": ["Envia un correo a nuestro","Send an email to our","发送电子邮件给我们"],
+      "email": ["Email","Email","电子邮件"],
+      "textoCorreoDos": ["Por cualquier duda.","For any questions.","如有任何疑问"]
+
+
+
+
 
       
 

@@ -155,7 +155,7 @@ tornar() {
         return (
             <>
                 <Form className="formPublicacion" onSubmit={this.submit}>
-
+                    <div className="containerForm">
                     <Row>
                         <Col><h3 className="tituloPublicacion"><Translate id="global.editarPublicacion" /></h3></Col>
                         <Col>
@@ -246,13 +246,18 @@ tornar() {
                                     
                             </FormGroup>
                         </Col>
-
-                        <Col sm="6">
-                        
+                        <Col sm='12' >
+                                    <hr className='separador'>
+                                    </hr>
+                                </Col>
+                        </Row>
+                    <Row>
+                        <Col sm="12">
+                        <h3 className="subtitulo">Dirección</h3>
                         <Mapa datos={this.state.data} pruebaMapa="100%" altura='400px' anchura='100%'  selector={true} coordenadas={this.coordenadas} />
                         </Col>
                     </Row>  
-
+                    </div>
 
                 </Form>
 
