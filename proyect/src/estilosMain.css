@@ -174,3 +174,9 @@ a { transition: all 0.3s ease; }
     line-height: 1;
   }
 }
+.botonesSesion{
+  position: relative;
+  left: 81%;
+  margin-top: 1%;
+  margin-left: 1%;
+}

@@ -25,7 +25,24 @@
       "publicarComentarioDatos": ["Publicar comentario","Post Comment","发表评论"],
       "volverDatos": ["Volver","Return","回报"],
 
-      "ESTAS_TRADUCCIONES_SON_DE_PRODUCTOR.JSX": ["none"]
+      "ESTAS_TRADUCCIONES_SON_DE_PRODUCTOR.JSX": ["none"],
+
+      "ESTAS_TRADUCCIONES_SON_DE_PAGINAMAIN.JSX": ["none"],
+
+      "registrarte": ["Registrate","Sing up","注册  "],
+      "iniciarSesion": ["Iniciar sesion","Login",""],
+      "primerTextoCursos": ["","",""],
+      "botonCursos": ["Cursos","",""],
+      "segundoTextoMapa": ["","",""],
+      "botonCerca": ["Profesores cerca","",""],
+      "ttuloContactanos": ["","",""],
+      "textoCorreo": ["","",""],
+      "email": ["Email","Email",""],
+      "textoCorreoDos": ["","",""]
+
+
+
+
 
       
 

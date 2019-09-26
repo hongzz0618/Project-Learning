@@ -158,9 +158,9 @@ if (this.state.inputMovie==="") {
 let bbdd_search = this.state.publicacion_search.map(el => <>
 <Col xs="12" sm="6" md="4" xl="3">
 <div key={el.idPublicacion} className="cajaProducto" >
-        <div>
-            <i className="corazonProducto far fa-heart" onClick={() => this.insertLike(el.idPublicacion)} onChange={this.handleInputChange}>{el.numLikes}</i>
-        </div>
+        
+<i style={ (this.state.desactivados.indexOf(el.idPublicacion)!==-1) ? {color:"red"} : {color:"gray"}} className="corazonProducto fas fa-heart" onClick={() =>  this.insertLike(el.idPublicacion)} onChange={this.handleInputChange}>{el.numLikes}</i>
+        
         <NavLink className="navProducto" to={"/datos_bbdd/" + el.idPublicacion}>
             <center>
                 <div>
@@ -174,7 +174,7 @@ let bbdd_search = this.state.publicacion_search.map(el => <>
 
                 <form>
 
-                    <p className="comentariosProducto"><img src="https://img.icons8.com/plasticine/100/000000/comments.png" width="40%" alt="no img" />({el.numComent})</p>
+                <i className="comentariosDatos fas fa-comment-dots"  aria-hidden="true">({el.numComent})</i>
                 </form>
             </center>
 
