@@ -6,7 +6,7 @@ import { Translate, withLocalize } from "react-localize-redux";
 import Mapa from './MapaUnico';
 
 
-const URL = "http://localhost:3000/api";
+const URL = "http://localhost:5000/api";
 
 class Datos_bbdd extends React.Component {
     constructor(props) {
@@ -143,7 +143,7 @@ class Datos_bbdd extends React.Component {
 
                     <Col sm="6" lg="6">
                         <Card className>
-                            {xxx.file ? <img className="imagenDatos" src={'http://localhost:3000/img/' + xxx.file} alt="xx" /> : "No foto"}
+                            {xxx.file ? <img className="imagenDatos" src={'http://localhost:5000/img/' + xxx.file} alt="xx" /> : "No foto"}
 
                             <CardTitle><h1>{this.state.publicacion[campo_nombre]}</h1></CardTitle>
                             <CardBody>

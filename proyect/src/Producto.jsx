@@ -8,7 +8,7 @@ import { Redirect ,BrowserRouter, Link, Switch, Route, NavLink } from "react-rou
 
 
 
-const API = "http://localhost:3000/api";
+const API = "http://localhost:5000/api";
 
 class Producto extends React.Component {
     constructor(props) {
@@ -138,7 +138,7 @@ if (this.state.inputMovie=="") {
                 <NavLink className="navProducto" to={"/datos_bbdd/" + el.idPublicacion}>
                     
                         <div>
-                            {el.file ? <img className="imagenProducto" src={'http://localhost:3000/img/' + el.file} alt="xx" /> : "No foto"}
+                            {el.file ? <img className="imagenProducto" src={'http://localhost:5000/img/' + el.file} alt="xx" /> : "No foto"}
                         </div>
                         <h3>{el[campo_nombre]}</h3>
                         <p>{el.precio}</p>
@@ -165,7 +165,7 @@ let bbdd_search = this.state.publicacion_search.map(el => <><div key={el.idPubli
         <NavLink className="navProducto" to={"/datos_bbdd/" + el.idPublicacion}>
             <center>
                 <div>
-                    {el.file ? <img className="imagenProducto" src={'http://localhost:3000/img/' + el.file} alt="xx" /> : "No foto"}
+                    {el.file ? <img className="imagenProducto" src={'http://localhost:5000/img/' + el.file} alt="xx" /> : "No foto"}
                 </div>
                 <h3>{el[campo_nombre]}</h3>
                 <p>{el.precio}</p>

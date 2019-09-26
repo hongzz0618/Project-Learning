@@ -11,7 +11,7 @@ import { Translate, withLocalize } from "react-localize-redux";
 // ESTE CSS ES PARA EL INPUT DE ABAJO
 import "./formularioNuevaPublicacion.css";
 
-const API = "http://localhost:3000/api";
+const API = "http://localhost:5000/api";
 
 
 class NovaPublicacio extends React.Component {

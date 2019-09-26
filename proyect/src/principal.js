@@ -6,7 +6,7 @@ import { Container, Row, Col } from 'reactstrap';
 
 const REACT_APP_GOOGLE_KEY = "AIzaSyC4g4B7cWdRTVvNkHJ8TjLZBlvr5IK-GtQ";
 
-const API = "http://localhost:3000/api";
+const API = "http://localhost:5000/api";
 
 export default class Principal extends React.Component {
   constructor(props) {
