@@ -107,7 +107,7 @@ class Datos_bbdd extends React.Component {
         if (this.state.toList) {
             return <Redirect to="/producto" />
         }
-        let datosComent = this.state.coment.map(el => <div>hong: {el.comentario}</div>);
+        let datosComent = this.state.coment.map(el => <div>hong  : {el.comentario}</div>);
 
         // this.props.activeLanguage.code ha sido "inyectado" en este componente y lo podemos utilizar
         // gracias al withLocalize(...) de abajo del todo...
