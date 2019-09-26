@@ -10,7 +10,7 @@ import NovaPublicacio from './NovaPublicacio';
 import Producto from './Producto';
 import Datos from './Datos_bbdd';
 import Principal from './principal';
-// import Register from './Register';
+ import Register from './Register';
 
 /*multiIdioma*/
 import { withLocalize } from "react-localize-redux";
@@ -58,6 +58,7 @@ class App extends React.Component {
             {/* <Route exact path="/registro" component={Register} /> */}
             <Route path="/principal" component={Principal} />
             <Route path="/producto" component={Producto} />
+            <Route path="/register" component={Register} />
             <Route path="/datos_bbdd/:idPublicacion" component={Datos} />
             <Route path="/new_publicacion" component={NovaPublicacio} />
             <Route path="/edit_publicacion/:idPublicacion" render={(props) => <EditaPublicacion  {...props} />} />

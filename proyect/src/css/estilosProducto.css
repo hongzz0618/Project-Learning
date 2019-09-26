@@ -21,16 +21,19 @@
 
 
 .cajaProducto {
-
+  border: solid grey 2px;
   box-sizing: border-box; /* para que los padding y border no se sumen al width */
   display: inline-block;
   text-align: center;
   width: 90%;
-  height: auto;
+  height: 97%;
   vertical-align: top; /* alinear cada producto arriba */
   border-radius: 5%;
   margin-top: 10%;
-  padding: 1px;
+  padding: 5px;
+  padding-bottom: 20px;
+  background-color: rgba(255, 255, 255, 0.8);
+  margin: 20px;
 
 }
 
@@ -118,4 +121,5 @@ font-size: 32px;
 color: #1089ff;
 float: right;
 margin-right: 10%;
+
 }

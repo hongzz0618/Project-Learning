@@ -17,7 +17,7 @@ export default class paginaMain extends React.Component {
 		return (
 			<div className="tm-containerPrimero">
 
-				<Button className="botonesSesion" color="primary"><Translate id="global.registrate" /></Button>
+				<Link to="/register"><Button className="botonesSesion" color="primary"><Translate id="global.registrate" /></Button></Link>
 				<Button className="botonesSesion margen" color="primary"><Translate id="global.iniciarSesion" /></Button>
 
 				<div className="tm-text-white tm-page-header-container">

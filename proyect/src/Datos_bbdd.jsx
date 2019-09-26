@@ -111,7 +111,12 @@ class Datos_bbdd extends React.Component {
 
         // this.props.activeLanguage.code ha sido "inyectado" en este componente y lo podemos utilizar
         // gracias al withLocalize(...) de abajo del todo...
-        let idioma_actual = this.props.activeLanguage.code;
+
+        let idioma_actual;
+        
+        if(!this.props.activeLanguage) idioma_actual =  "es";
+        else idioma_actual = this.props.activeLanguage.code;
+        
         let campo_nombre = "nombre_" + idioma_actual.toUpperCase();
         let campo_info = "Info_" + idioma_actual.toUpperCase();
 
@@ -138,7 +143,7 @@ class Datos_bbdd extends React.Component {
 
 
                     <Col sm="6" lg="6">
-                        <Card className>
+                        <Card >
                             {xxx.file ? <img alt="no img" className="imagenDatos" src={'http://localhost:5000/img/' + xxx.file} /> : "No foto"}
 
                             <CardTitle><h1>{this.state.publicacion[campo_nombre]}</h1></CardTitle>
@@ -190,10 +195,11 @@ class Datos_bbdd extends React.Component {
 
 
                     <Col xs="6" xl="6">
+                        <div className="comentariosContainer">
                         <Form onSubmit={this.submit}>
 
                             <h3><Translate id="global.comentariosDatos" /></h3>
-                            <hr />
+                            <hr className="separadorComentarios"/>
                             <div className="textoComentariosDatos">
                                 {datosComent}
                             </div>
@@ -210,6 +216,7 @@ class Datos_bbdd extends React.Component {
                             <Button type="submit" className="botonPublicarComentarioDatos" size='sm' color="secondary" >{<Translate id="global.publicarComentarioDatos" />}</Button>
 
                         </Form>
+                        </div>
                         <div className="mapaDatos">
                             <Mapa datos={[this.state.publicacion]} pruebaMapa="400px" altura='100%' anchura='100%' />
                         </div>

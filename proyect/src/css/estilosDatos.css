@@ -38,3 +38,20 @@ margin-left: 46%;
 .modalDatos{
     background-color: #1089ff;
 }
+
+div.comentariosContainer{
+ border: solid grey 2px;
+ border-radius: 5px;
+ width: 100%;
+ padding: 5px;
+ padding-bottom: 10px;
+ background-color: rgba(255, 255, 255, 0.8);
+}
+
+hr.separadorComentarios{
+    width: 100%;
+}
+
+.cartaProducto{
+    background-color: rgba(255, 255, 255, 0.8);
+}

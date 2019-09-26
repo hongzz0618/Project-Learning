@@ -121,7 +121,6 @@ class Register extends React.Component {
     return (
       <div>
         <Navbar color="transparent" light expand="xl">
-          <NavbarBrand href="/">iEstudia</NavbarBrand>
           <NavbarToggler className="mt-5" onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="mx-auto mt-5" navbar>
