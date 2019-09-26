@@ -1,6 +1,8 @@
 import React from "react";
 import { Translate, withLocalize } from "react-localize-redux";
-import { Input, Row, Col, Container } from 'reactstrap';
+import { Input, Row, Col, Container, Button, Form } from 'reactstrap';
+
+import Menu from './Menu';
 
 import "./css/estilosProducto.css";
 import {  Link, NavLink } from "react-router-dom";
