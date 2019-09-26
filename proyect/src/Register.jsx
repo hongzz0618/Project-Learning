@@ -100,7 +100,7 @@ class Register extends React.Component {
         headers: new Headers({ 'Content-Type': 'application/json' }),
         body: JSON.stringify(user)
       })
-        .then(data => data.json)
+        .then(data => data.json())
         .then(data => {
           console.log(data);
           this.setState = {
