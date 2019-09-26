@@ -79,11 +79,13 @@
 
 /*MODIFICAR EL CORAZON*/
 .corazonProducto{
-  font-size: 180%;
+  font-size: 32px;
   color: gray;
   position: relative;
   z-index: 1;
-  top: 10%;
+  top: 50px;
+  left: 37%;
+  cursor: pointer;  
 }
 .corazonProducto:hover{
   color: red;
@@ -109,4 +111,11 @@
 .botonBuscar{
 margin-left: 10px;
 float: right;
+}
+
+.comentariosDatos{
+font-size: 32px;
+color: #1089ff;
+float: right;
+margin-right: 10%;
 }

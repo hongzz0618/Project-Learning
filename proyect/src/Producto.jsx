@@ -95,11 +95,18 @@ class Producto extends React.Component {
     _handleSubmit = (e) => {
         e.preventDefault();
 
-        fetch(API + "/publicacion/nombre/"+this.state.inputMovie)
-            .then(res => res.json())
-            .then(publicacions => this.setState({ buscando: true, publicacion_search: publicacions.data }))
-            .catch(err => console.log(err));
+if (this.state.inputMovie=="") {
+ 
+    this.setState({ buscando: false, })
+}else{
 
+    fetch(API + "/publicacion/nombre/"+this.state.inputMovie)
+    .then(res => res.json())
+    .then(publicacions => this.setState({ buscando: true, publicacion_search: publicacions.data }))
+    .catch(err => console.log(err));
+
+}
+       
 
     }
 
@@ -124,10 +131,7 @@ class Producto extends React.Component {
 
             <Col xs="12" sm="6" md="4" xl="3">
             <div key={el.idPublicacion} className="cajaProducto" >
-
-                <div>
-                    <i style={ (this.state.desactivados.indexOf(el.idPublicacion)!==-1) ? {Color:"red"} : {Color:"grey"}} className="corazonProducto far fa-heart" onClick={() => this.insertLike(el.idPublicacion)} onChange={this.handleInputChange}>{el.numLikes}</i>
-                </div>
+            <i style={ (this.state.desactivados.indexOf(el.idPublicacion)!==-1) ? {color:"red"} : {color:"gray"}} className="corazonProducto fas fa-heart" onClick={() =>  this.insertLike(el.idPublicacion)} onChange={this.handleInputChange}>{el.numLikes}</i>
                 <NavLink className="navProducto" to={"/datos_bbdd/" + el.idPublicacion}>
                     
                         <div>
@@ -141,7 +145,7 @@ class Producto extends React.Component {
 
                         <form>
 
-                            {/* <p className="comentariosProducto"><img src="https://img.icons8.com/plasticine/100/000000/comments.png" width="40%" />({el.numComent})</p> */}
+                            <i className="comentariosDatos fas fa-comment-dots"  aria-hidden="true">({el.numComent})</i>
                         </form>
                     
 
@@ -200,7 +204,7 @@ let bbdd_search = this.state.publicacion_search.map(el => <>
                                 <Input 
                                     autoFocus
                                     onChange={this._handleChange}
-                                    required
+                         placeholder="Introduce para buscar un producto"
                                     type="text"
                                     value={this.state.inputMovie}
                                 />
