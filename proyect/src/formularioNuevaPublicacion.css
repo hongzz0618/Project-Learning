@@ -26,3 +26,8 @@
     margin-top: 7px;
     margin-left: 30%;
 }
+.botonSubirImagen{
+    position: absolute;
+    margin-top: 28px;
+    margin-left: -50px;
+}

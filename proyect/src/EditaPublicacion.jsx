@@ -11,7 +11,7 @@ import "./formularioNuevaPublicacion.css";
 import { Translate, withLocalize } from "react-localize-redux";
 
 
-const API = "http://localhost:3000/api";
+const API = "http://localhost:5000/api";
 
 
 class EditaPublicacion extends Component {
@@ -91,7 +91,7 @@ class EditaPublicacion extends Component {
         if (this.state.selectedFile) {
             data.append('file', this.state.selectedFile);
         }else{
-            data.append('file', this.state.file);
+            // data.append('file', null);
         }
         
      

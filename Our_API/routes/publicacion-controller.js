@@ -84,7 +84,11 @@ router.put('/:id', (req, res, next) => {
 
         let idpublicacion = req.params.id;
         // modelo.Genero.findById(idgenero)
-        req.body.file = req.file.filename;
+        if (req.file){
+            req.body.file = req.file.filename;
+        }else {
+            delete req.body.file;
+        }
         model.publicacion.findOne({ where: { idPublicacion: idpublicacion } })
             .then(item => item.update(req.body))
             .then(item => res.json({ ok: true, data: item }))
@@ -112,7 +116,11 @@ router.post('/foto', (req, res, next) => {
 
         // let idcontacto = req.body.idcontacto;
         // console.log(req.body);
-        req.body.file = req.file.filename;
+        if (req.file){
+            req.body.file = req.file.filename;
+        }else {
+            delete req.body.file;
+        }
         console.log(req.body);
         model.publicacion.create(req.body)   
         .then(elemento => res.json({ ok: true, data: elemento }))
