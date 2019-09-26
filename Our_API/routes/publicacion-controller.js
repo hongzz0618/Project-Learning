@@ -52,7 +52,7 @@ router.get('/:id', (req, res, next) => {
 router.get('/nombre/:nombre', (req, res, next) => {
     let nombre = req.params.nombre;
 
-    model.publicacion.findAll({
+    model.publicacionx.findAll({
         where: {
             [Op.or]: [
                 {

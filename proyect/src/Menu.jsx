@@ -28,9 +28,9 @@ import "./pruebasMenu.css";
     <div className="menu__listings">
       <ul className="circle">
         <li>
-          <div class="placeholder">
-            <div class="upside">
-              <Link to="/principal" class="button"><img src="https://img.icons8.com/ios/40/000000/map.png"/></Link>
+          <div className="placeholder">
+            <div className="upside">
+              <Link to="/principal" className="button"><img src="https://img.icons8.com/ios/40/000000/map.png"/></Link>
             </div>
           </div>
         </li>
