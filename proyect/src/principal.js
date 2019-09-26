@@ -2,9 +2,8 @@ import React from "react";
 import Mapa from "./Mapa";
 import './paginaPrincipal.css';
 
-import { Container, Row, Col } from 'reactstrap';
 
-const REACT_APP_GOOGLE_KEY = "AIzaSyC4g4B7cWdRTVvNkHJ8TjLZBlvr5IK-GtQ";
+
 
 const API = "http://localhost:5000/api";
 

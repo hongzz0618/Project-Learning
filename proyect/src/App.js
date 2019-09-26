@@ -1,10 +1,8 @@
 import React from 'react';
 
 import "./css/estilosProducto.css";
-import { BrowserRouter, Link, Switch, Route, NavLink } from "react-router-dom";
-import { Container, Row, Col } from 'reactstrap';
-import { Redirect } from 'react-router-dom';
-import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
+import { BrowserRouter,  Switch, Route } from "react-router-dom";
+
 
 import EditaPublicacion from './EditaPublicacion';
 import NovaPublicacio from './NovaPublicacio';
@@ -30,9 +28,9 @@ class App extends React.Component {
 
     this.props.initialize({
       languages: [
-        {name: <img className="iconoIdiomas" src="https://img.icons8.com/color/48/000000/spain.png" />, code:"es"},
-        {name: <img className="iconoIdiomas" src="https://img.icons8.com/color/48/000000/usa.png" />, code:"en"},
-        {name: <img className="iconoIdiomas" src="https://img.icons8.com/color/48/000000/china.png" />, code:"ch"},
+        {name: <img alt="no img" className="iconoIdiomas" src="https://img.icons8.com/color/48/000000/spain.png" />, code:"es"},
+        {name: <img alt="no img" className="iconoIdiomas" src="https://img.icons8.com/color/48/000000/usa.png" />, code:"en"},
+        {name: <img alt="no img" className="iconoIdiomas" src="https://img.icons8.com/color/48/000000/china.png" />, code:"ch"},
       ],
       translation: globalTranslations,
       options: { renderToStaticMarkup, defaultLanguage:'es'}

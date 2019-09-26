@@ -9,7 +9,7 @@ class TriaIdioma extends React.Component {
   render() {
 
     let languages = this.props.languages;
-    let activeLanguage = this.props.activeLanguage;
+ 
 
     return (
       <div className="selector editar">

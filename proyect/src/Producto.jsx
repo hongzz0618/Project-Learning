@@ -1,9 +1,9 @@
 import React from "react";
 import { Translate, withLocalize } from "react-localize-redux";
-import { Button, Form, FormGroup, Label, Input, Row, Col, Container, Card, CardTitle, CardBody, CardImg, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import { Input, Row, Col, Container } from 'reactstrap';
 
 import "./css/estilosProducto.css";
-import { Redirect ,BrowserRouter, Link, Switch, Route, NavLink } from "react-router-dom";
+import {  Link, NavLink } from "react-router-dom";
 
 
 
@@ -43,7 +43,7 @@ class Producto extends React.Component {
 
     insertLike(id) {
 
-        if (this.state.inser == 0) {
+        if (this.state.inser === 0) {
 
             console.log(this.state.inser);
             this.setState({
@@ -95,7 +95,7 @@ class Producto extends React.Component {
     _handleSubmit = (e) => {
         e.preventDefault();
 
-if (this.state.inputMovie=="") {
+if (this.state.inputMovie==="") {
  
     this.setState({ buscando: false, })
 }else{
@@ -175,7 +175,7 @@ let bbdd_search = this.state.publicacion_search.map(el => <><div key={el.idPubli
 
                 <form>
 
-                    <p className="comentariosProducto"><img src="https://img.icons8.com/plasticine/100/000000/comments.png" width="40%" />({el.numComent})</p>
+                    <p className="comentariosProducto"><img src="https://img.icons8.com/plasticine/100/000000/comments.png" width="40%" alt="no img" />({el.numComent})</p>
                 </form>
             </center>
 
@@ -216,7 +216,7 @@ let bbdd_search = this.state.publicacion_search.map(el => <><div key={el.idPubli
                     </form>
           
                  {(this.state.buscando) ?  bbdd_search : bbdd}
-                  {(this.state.publicacion_search.length>1 || this.state.buscando==false) ? "":<><h1>No existe el Producto introducido</h1></>}
+                  {(this.state.publicacion_search.length>1 || this.state.buscando===false) ? "":<><h1>No existe el Producto introducido</h1></>}
                 
                 
                  </Row>

@@ -18,7 +18,7 @@ class EditaPublicacion extends Component {
     constructor(props) {
         super(props);
 
-        this.state = { loading: true,loading: false, selectedFile: false, data: [{}], coords: "x,y"  };
+        this.state = { loading: false, selectedFile: false, data: [{}], coords: "x,y"  };
 
         this.handleInputChange = this.handleInputChange.bind(this);
         this.tornar = this.tornar.bind(this);
@@ -236,7 +236,7 @@ tornar() {
 
                         <Col sm="6">
                             <FormGroup>
-                                <Label for="imgInput" className="textoPublicacion"><Translate id="global.imagenPublicacion" /><img className="imagenBotonEnviar" src="https://img.icons8.com/ultraviolet/40/000000/upload-to-ftp.png" /></Label>
+                                <Label for="imgInput" className="textoPublicacion"><Translate id="global.imagenPublicacion" /><img className="imagenBotonEnviar" alt="no img" src="https://img.icons8.com/ultraviolet/40/000000/upload-to-ftp.png" /></Label>
                                 <Input type="file" name="file" id="imgInput"
                                     onChange={this.onChangeHandler} className="botonEnviar" />
                                 <input type="hidden" value={this.state.file} />
