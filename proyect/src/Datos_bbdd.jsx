@@ -1,6 +1,6 @@
 import React from "react";
 import { Redirect } from 'react-router-dom';
-import { Button, Form, FormGroup, Label, Input, Row, Col, Container, Card, CardTitle, CardBody, CardImg, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import { Button, Form, FormGroup, Label, Input, Row, Col, Container, Card, CardTitle, CardBody, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import "./css/estilosDatos.css";
 import { Translate, withLocalize } from "react-localize-redux";
 import Mapa from './MapaUnico';
@@ -143,7 +143,7 @@ class Datos_bbdd extends React.Component {
 
                     <Col sm="6" lg="6">
                         <Card className>
-                            {xxx.file ? <img className="imagenDatos" src={'http://localhost:5000/img/' + xxx.file} alt="xx" /> : "No foto"}
+                            {xxx.file ? <img alt="no img" className="imagenDatos" src={'http://localhost:5000/img/' + xxx.file}  /> : "No foto"}
 
                             <CardTitle><h1>{this.state.publicacion[campo_nombre]}</h1></CardTitle>
                             <CardBody>
@@ -152,24 +152,24 @@ class Datos_bbdd extends React.Component {
 
                             {/* DATOS DE CONTACTO Y REDES SOCIALES. */}
                             <div>
-                                <img className="contactoDatos" src="https://img.icons8.com/color/48/000000/my-topic.png" onClick={this.toggle}>{this.props.buttonLabel}</img>
+                                <img className="contactoDatos" alt="no img" src="https://img.icons8.com/color/48/000000/my-topic.png" onClick={this.toggle}>{this.props.buttonLabel}</img>
                                 <Modal  isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
                                     <ModalHeader className="modalDatos" toggle={this.toggle}>Redes sociales</ModalHeader>
                                     <ModalBody>
                                     <div className="redesSocialesModal">
-					                <a href="" class="tm-social-link">
+					                <a href="#" class="tm-social-link">
 					                  <i class="fab fa-facebook"></i>
 					                </a>
 
-					                <a href="" class="tm-social-link">
+					                <a href="#" class="tm-social-link">
 					                  <i class="fab fa-twitter"></i>
 					                </a>
 
-					                <a href="" class="tm-social-link">
+					                <a href="#" class="tm-social-link">
 					                  <i class="fab fa-instagram"></i>
 					                </a>
 
-					                <a href="" class="tm-social-link">
+					                <a href="#" class="tm-social-link">
 					                  <i class="fab fa-pinterest"></i>
 					                </a>
                                     </div>

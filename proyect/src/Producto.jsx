@@ -3,7 +3,7 @@ import { Translate, withLocalize } from "react-localize-redux";
 import { Button, Form, Input, Row, Col, Container } from 'reactstrap';
 import Menu from "./Menu.jsx";
 import "./css/estilosProducto.css";
-import { Redirect ,BrowserRouter, Link, Switch, Route, NavLink } from "react-router-dom";
+import {  Link, NavLink } from "react-router-dom";
 
 
 
@@ -43,7 +43,7 @@ class Producto extends React.Component {
 
     insertLike(id) {
 
-        if (this.state.inser == 0) {
+        if (this.state.inser === 0) {
 
             console.log(this.state.inser);
             this.setState({
@@ -95,7 +95,7 @@ class Producto extends React.Component {
     _handleSubmit = (e) => {
         e.preventDefault();
 
-if (this.state.inputMovie=="") {
+if (this.state.inputMovie==="") {
  
     this.setState({ buscando: false, })
 }else{
@@ -157,7 +157,7 @@ if (this.state.inputMovie=="") {
         
 let bbdd_search = this.state.publicacion_search.map(el => <>
 <Col xs="12" sm="6" md="4" xl="3">
-<div key={el.idPublicacion} className="cajaProducto" >
+<div key={el.nombre_ES} className="cajaProducto" >
         <div>
             <i className="corazonProducto far fa-heart" onClick={() => this.insertLike(el.idPublicacion)} onChange={this.handleInputChange}>{el.numLikes}</i>
         </div>
@@ -174,7 +174,7 @@ let bbdd_search = this.state.publicacion_search.map(el => <>
 
                 <form>
 
-                    <p className="comentariosProducto"><img src="https://img.icons8.com/plasticine/100/000000/comments.png" width="40%" />({el.numComent})</p>
+                    <p className="comentariosProducto"><img src="https://img.icons8.com/plasticine/100/000000/comments.png" width="40%" alt="no img" />({el.numComent})</p>
                 </form>
             </center>
 
@@ -216,8 +216,8 @@ let bbdd_search = this.state.publicacion_search.map(el => <>
                 </Row>
                 <Row>
             
-                 {bbdd_search}
-                     {(this.state.buscando) ? <></> : bbdd}
+                {(this.state.buscando) ?  bbdd_search : bbdd}
+                  {(this.state.publicacion_search.length>1 || this.state.buscando===false) ? "":<><h1>No existe el Producto introducido</h1></>}
                 
                 
                  </Row>

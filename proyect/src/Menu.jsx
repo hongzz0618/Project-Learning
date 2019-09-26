@@ -9,104 +9,102 @@ import "./pruebasMenu.css";
 // import '@trendmicro/react-sidenav/dist/react-sidenav.css';
 
  class Menu extends React.Component {
-    constructor(props) {
-        super(props);
-    }
+  
 
     render() {
         return (
             <>
-            <section class="menu menu--circle">
+            <section className="menu menu--circle">
   <input type="checkbox" id="menu__active"/>
-  <label for="menu__active" class="menu__active">
-    <div class="menu__toggle">
-      <div class="icon">
-        <div class="hamburger"></div>
+  <label htmlFor="menu__active" className="menu__active">
+    <div className="menu__toggle">
+      <div className="icon">
+        <div className="hamburger"></div>
       </div>
     </div>
     <input type="radio" name="arrow--up" id="degree--up-0"/>
     <input type="radio" name="arrow--up" id="degree--up-1" />
     <input type="radio" name="arrow--up" id="degree--up-2" />
-    <div class="menu__listings">
-      <ul class="circle">
+    <div className="menu__listings">
+      <ul className="circle">
         <li>
-          <div class="placeholder">
-            <div class="upside">
-              <Link to="/principal" class="button"><img src="https://img.icons8.com/ios/40/000000/map.png"/></Link>
+          <div className="placeholder">
+            <div className="upside">
+              <Link to="/principal" className="button"><img src="https://img.icons8.com/ios/40/000000/map.png"/></Link>
             </div>
           </div>
         </li>
         <li>
-          <div class="placeholder">
-            <div class="upside">
-              <Link to="/producto" class="button"><img src="https://img.icons8.com/ios/40/000000/courses.png"/></Link>
+          <div className="placeholder">
+            <div className="upside">
+              <Link to="/producto" className="button" ><img alt="no img" src="https://img.icons8.com/ios/40/000000/courses.png"/></Link>
             </div>
           </div>
         </li>
         <li>
-          <div class="placeholder">
-            <div class="upside">
+          <div className="placeholder">
+            <div className="upside">
               
             </div>
           </div>
         </li>
         <li>
-          <div class="placeholder">
-            <div class="upside">
+          <div className="placeholder">
+            <div className="upside">
               
             </div>
           </div>
         </li>
         <li>
-          <div class="placeholder">
-            <div class="upside">
+          <div className="placeholder">
+            <div className="upside">
               
             </div>
           </div>
         </li>
         <li>
-          <div class="placeholder">
-            <div class="upside">
+          <div className="placeholder">
+            <div className="upside">
               
             </div>
           </div>
         </li>
         <li>
-          <div class="placeholder">
-            <div class="upside">
+          <div className="placeholder">
+            <div className="upside">
               
             </div>
           </div>
         </li>
         <li>
-          <div class="placeholder">
-            <div class="upside">
+          <div className="placeholder">
+            <div className="upside">
              
             </div>
           </div>
         </li>
         <li>
-          <div class="placeholder">
-            <div class="upside">
+          <div className="placeholder">
+            <div className="upside">
               
             </div>
           </div>
         </li>
         <li>
-          <div class="placeholder">
-            <div class="upside">
-              <Link to="#" class="button"><img src="https://img.icons8.com/ios/40/000000/user.png"/></Link>
+          <div className="placeholder">
+            <div className="upside">
+              <Link to="#" className="button"><img  alt="no img" src="https://img.icons8.com/ios/40/000000/user.png"/></Link>
             </div>
           </div>
         </li>
       </ul>
     </div>
-    <div class="menu__arrow menu__arrow--top">
+    <div className="menu__arrow menu__arrow--top">
       <ul>
         <li>
-          <label for="degree--up-0"><div class="arrow"></div></label>
-          <label for="degree--up-1"><div class="arrow"></div></label>
-          <label for="degree--up-2"><div class="arrow"></div></label>
+          <label htmlFor="degree--up-0"><div className="arrow"></div></label>
+          <label htmlFor="degree--up-1"><div className="arrow"></div></label>
+          <label htmlFor="degree--up-2"><div className="arrow"></div></label>
         </li>
       </ul>
     </div>

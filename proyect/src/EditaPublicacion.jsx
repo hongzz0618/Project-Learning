@@ -18,7 +18,7 @@ class EditaPublicacion extends Component {
     constructor(props) {
         super(props);
 
-        this.state = { loading: true,loading: false, selectedFile: false, data: [{}], coords: "x,y"  };
+        this.state = { loading: false, selectedFile: false, data: [{}], coords: "x,y"  };
 
         this.handleInputChange = this.handleInputChange.bind(this);
         this.tornar = this.tornar.bind(this);

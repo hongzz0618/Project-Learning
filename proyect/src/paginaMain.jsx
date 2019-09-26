@@ -1,8 +1,8 @@
 import React from 'react';
-import { Container, Row, Col, Button, } from 'reactstrap';
+import {  Button, } from 'reactstrap';
 import './estilosMain.css';
 import Logo from "./logoDeLaPagina/logoPagina.png";
-import { BrowserRouter, Link, Switch, Route, NavLink } from "react-router-dom";
+import {  Link} from "react-router-dom";
 
 
 
@@ -23,7 +23,7 @@ export default class Botones extends React.Component {
 			<div className="tm-main-content">
 
              {/* ENLACES BOTONES */}
-			  <section class="tm-section tm-section-small">
+			  <section className="tm-section tm-section-small">
 			  <p>
 				  Todos los cursos disponibles.
 
@@ -50,7 +50,7 @@ export default class Botones extends React.Component {
 				<h2 className="tm-section-header">Contactanos</h2>
 				<p className="tm-mb-0">
 				  Envia un correo a nuestro
-				<a href="mailto:info@example.com" class="emailNuestro">Email</a>
+				<a href="mailto:info@example.com" className="emailNuestro">Email</a>
 				  para cualquier duda.
 				</p>
 				<div className="iconosSociales">
@@ -69,7 +69,7 @@ export default class Botones extends React.Component {
 					  <i className="fab fa-instagram"></i>
 					</a>
 				  </div>
-				  <div class="tm-social-link-container">
+				  <div className="tm-social-link-container">
 					<a href="" className="tm-social-link">
 					  <i className="fab fa-pinterest"></i>
 					</a>
