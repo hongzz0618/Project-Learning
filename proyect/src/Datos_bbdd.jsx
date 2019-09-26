@@ -111,7 +111,7 @@ class Datos_bbdd extends React.Component {
         if (this.state.toList) {
             return <Redirect to="/producto" />
         }
-        let datosComent = this.state.coment.map(el => <div>{el.comentario}</div>);
+        let datosComent = this.state.coment.map(el => <div>hong: {el.comentario}</div>);
 
         // this.props.activeLanguage.code ha sido "inyectado" en este componente y lo podemos utilizar
         // gracias al withLocalize(...) de abajo del todo...
@@ -157,15 +157,15 @@ class Datos_bbdd extends React.Component {
                                     <ModalHeader className="modalDatos" toggle={this.toggle}>Redes sociales</ModalHeader>
                                     <ModalBody>
                                     <div className="redesSocialesModal">
-					                <a href="#" class="tm-social-link">
+					                <a href="https://www.facebook.com/hong.zhou.9250" class="tm-social-link">
 					                  <i class="fab fa-facebook"></i>
 					                </a>
 
-					                <a href="#" class="tm-social-link">
+					                <a href="https://www.whatsapp.com/" class="tm-social-link">
 					                  <i class="fab fa-twitter"></i>
 					                </a>
 
-					                <a href="#" class="tm-social-link">
+					                <a href="https://www.instagram.com/zhou4259/?hl=zh-cn" class="tm-social-link">
 					                  <i class="fab fa-instagram"></i>
 					                </a>
 
@@ -174,9 +174,9 @@ class Datos_bbdd extends React.Component {
 					                </a>
                                     </div>
                                     <div className="informacionUsuarioModal">
-                                        <h5>Usuario:</h5>
-                                        <h5>Telefono: </h5>
-                                        <h5>Email:  </h5>
+                                        <h5>Usuario: Hong</h5>
+                                        <h5>Telefono: 666 666 666</h5>
+                                        <h5>Email: zhou@gmaiil.com </h5>
 
                                     </div>
 
