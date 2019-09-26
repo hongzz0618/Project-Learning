@@ -6,7 +6,7 @@ import "./css/estilosProducto.css";
 import {  Link, NavLink } from "react-router-dom";
 
 
-
+// import {API} from './Config';
 
 const API = "http://localhost:5000/api";
 
@@ -217,7 +217,7 @@ let bbdd_search = this.state.publicacion_search.map(el => <>
                 <Row>
             
                 {(this.state.buscando) ?  bbdd_search : bbdd}
-                  {(this.state.publicacion_search.length>1 || this.state.buscando===false) ? "":<><h1></h1></>}
+                  {(this.state.publicacion_search.length>1 || this.state.buscando===false) ? "":<><h1 style={{margin: "50px"}}> No existe el Producto Introducido</h1></>}
                 
                 
                  </Row>

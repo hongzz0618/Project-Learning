@@ -5,7 +5,7 @@ import Menu from "./Menu.jsx";
 
 
 
-
+// import {API} from './Config';
 const API = "http://localhost:5000/api";
 
 export default class Principal extends React.Component {

@@ -11,7 +11,7 @@ import "./formularioNuevaPublicacion.css";
 
 import { Translate, withLocalize } from "react-localize-redux";
 
-
+// import {API} from './Config';
 const API = "http://localhost:5000/api";
 
 
