@@ -52,7 +52,7 @@
     left: -100px;
     width: 200px;
     height: 200px;
-    background-image: radial-gradient(circle, #d2d0fe, #7f78d2,#6d0c74);
+    background-image: radial-gradient(circle, #e5e5e5,#23374d, #23374d);
     border-radius: 50%;
     transition: transform 1.3s;
     cursor: pointer;

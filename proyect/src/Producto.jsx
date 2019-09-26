@@ -1,7 +1,7 @@
 import React from "react";
 import { Translate, withLocalize } from "react-localize-redux";
 import { Button, Form, FormGroup, Label, Input, Row, Col, Container, Card, CardTitle, CardBody, CardImg, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
-
+import Menu from "./Menu.jsx";
 import "./css/estilosProducto.css";
 import { Redirect ,BrowserRouter, Link, Switch, Route, NavLink } from "react-router-dom";
 
@@ -150,8 +150,10 @@ class Producto extends React.Component {
             </Col>
 
         </>);
-
-let bbdd_search = this.state.publicacion_search.map(el => <><div key={el.idPublicacion} className="cajaProducto" >
+        
+let bbdd_search = this.state.publicacion_search.map(el => <>
+<Col xs="12" sm="6" md="4" xl="3">
+<div key={el.idPublicacion} className="cajaProducto" >
         <div>
             <i className="corazonProducto far fa-heart" onClick={() => this.insertLike(el.idPublicacion)} onChange={this.handleInputChange}>{el.numLikes}</i>
         </div>
@@ -174,36 +176,38 @@ let bbdd_search = this.state.publicacion_search.map(el => <><div key={el.idPubli
 
         </NavLink>
     </div>
+    </Col>
 
 </>);
 
         return (
             <>
+                
+                <Menu />
 
                 <Container fluid>
                 <Row>
-                <Col xs="auto" lg="auto">  
+                <Col xs="6" lg="6">  
                 <Link className="botonProductoPublicar btn btn-secondary" to="/new_publicacion"><Translate id="global.nuevaPublicacion" /></Link>
                 </Col>
-                <Col>
-                <form onSubmit={this._handleSubmit} className="medium-margin-bottom">
+                <Col xs="6" lg="6">
+                <Form  inline onSubmit={this._handleSubmit} className="formularioProducto medium-margin-bottom">
                         <div className="field has-addons">
-                            <div className="control">
-                                <input
+                            
+                                <Button size="sm" className="botonBuscar button is-info" type="submit">
+                                   Buscar
+						        </Button>
+                                <Input 
                                     autoFocus
                                     onChange={this._handleChange}
                                     required
                                     type="text"
                                     value={this.state.inputMovie}
                                 />
-                            </div>
-                            <div className="control">
-                                <button className="button is-info" type="submit">
-                                    Search
-						        </button>
-                            </div>
+                          
+                            
                         </div>
-                    </form>
+                    </Form>
                     </Col>
                 </Row>
                 <Row>

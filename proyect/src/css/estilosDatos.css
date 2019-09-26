@@ -1,6 +1,10 @@
 .cajaColDatos{
 margin-top: 6%;
 }
+
+.botonesAtrasEditarBorrarDatos{
+    margin-top: 5%;
+}
 .botonesEditarBorrarDatos{
 margin-left: 46%;
 }
@@ -12,8 +16,25 @@ margin-left: 46%;
     border-radius: 5%;
 }
 .textoComentariosDatos{
-    width: 70%;
-}
-.botonPublicarComentarioDatos{
     width: 100%;
-  }
+}
+.mapaDatos{
+
+    margin-top: 5%;
+}
+.contactoDatos{
+    cursor: pointer;
+    float: right;
+    margin-right: 4%;
+    margin-bottom: 2%;
+}
+.redesSocialesModal{
+    float: left;
+}
+.informacionUsuarioModal{
+    float: left;
+    margin-left: 10%;
+}
+.modalDatos{
+    background-color: #1089ff;
+}

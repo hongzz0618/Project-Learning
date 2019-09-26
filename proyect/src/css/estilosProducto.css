@@ -31,7 +31,6 @@
   border-radius: 5%;
   margin-top: 10%;
   padding: 1px;
-  background-color: gray;
 
 }
 
@@ -91,13 +90,23 @@
 }
 
 .botonProductoPublicar{
-  position: relative;
-  width: 100%;
-  margin-left: 10%;
-  margin-top: 100%;
+  float: left;
+  margin-left: 5%;
+  margin-top: 20%;
   
 }
 .textoProducto{
   text-align: left;
   padding: 5%;
+}
+.formularioProducto{
+  margin-top: 25%;
+  float: right;
+  margin-right: 1 0%;
+  
+}
+
+.botonBuscar{
+margin-left: 10px;
+float: right;
 }
