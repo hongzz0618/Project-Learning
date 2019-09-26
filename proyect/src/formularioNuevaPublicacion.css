@@ -1,17 +1,16 @@
 .formPublicacion{
 
     padding: 15%;
-
-   background-color: #1089ff;
+    padding-top: 5%;
+    background-color: #1089ff;
 
 }
 .tituloPublicacion{
-    margin-left: 5%;
-    margin-bottom: 8%; 
+    
     color: black;   
 }
 .textoPublicacion{
-    color: white;
+    color: black;
 }
 .botonEnviar{
     visibility: hidden;
@@ -30,4 +29,23 @@
     position: absolute;
     margin-top: 28px;
     margin-left: -50px;
+}
+
+.containerForm{
+    border: white 3px solid;
+    border-radius: 10px;
+    padding: 5px;
+    background-color: #e5e5e5;
+}
+
+
+hr.separador{
+    width: 100%;
+    size: 3px;
+    background-color: white;
+    margin-bottom: 3px;
+}
+
+h3.subtitulo{
+    color: black;
 }

@@ -152,24 +152,24 @@ class Datos_bbdd extends React.Component {
 
                             {/* DATOS DE CONTACTO Y REDES SOCIALES. */}
                             <div>
-                                <img className="contactoDatos" src="https://img.icons8.com/color/48/000000/my-topic.png" onClick={this.toggle}>{this.props.buttonLabel}</img>
+                                <img className="contactoDatos" alt="no img" src="https://img.icons8.com/color/48/000000/my-topic.png" onClick={this.toggle}>{this.props.buttonLabel}</img>
                                 <Modal  isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
                                     <ModalHeader className="modalDatos" toggle={this.toggle}>Redes sociales</ModalHeader>
                                     <ModalBody>
                                     <div className="redesSocialesModal">
-					                <a href="" class="tm-social-link">
+					                <a href="#" class="tm-social-link">
 					                  <i class="fab fa-facebook"></i>
 					                </a>
 
-					                <a href="" class="tm-social-link">
+					                <a href="#" class="tm-social-link">
 					                  <i class="fab fa-twitter"></i>
 					                </a>
 
-					                <a href="" class="tm-social-link">
+					                <a href="#" class="tm-social-link">
 					                  <i class="fab fa-instagram"></i>
 					                </a>
 
-					                <a href="" class="tm-social-link">
+					                <a href="#" class="tm-social-link">
 					                  <i class="fab fa-pinterest"></i>
 					                </a>
                                     </div>

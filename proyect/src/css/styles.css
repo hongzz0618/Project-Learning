@@ -1,0 +1,82 @@
+body {
+    background-image: url('bg-1.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-color: rgb(231, 231, 231) !important;
+    margin: 0%;
+    font-family: 'Manjari', sans-serif;
+}
+
+button.navbar-toggler {
+    background-color: rgba(255, 255, 255, 0.76);
+}
+
+#map {
+    height: 100%;
+}
+
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidenav a:hover {
+    color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+@media screen and (max-height: 450px) {
+    .sidenav {
+        padding-top: 15px;
+    }
+    .sidenav a {
+        font-size: 18px;
+    }
+}
+
+.floating {
+    box-shadow: 0 0 20px;
+}
+
+form#regiterform {
+    width: 75%;
+    height: auto;
+    display: block;
+    margin: 0%;
+    background: rgb(242, 245, 246);
+    background: -moz-linear-gradient(top, rgb(242, 245, 246) 0%, rgb(227, 234, 237) 37%, rgb(200, 215, 220) 100%);
+    background: -webkit-linear-gradient(top, rgb(242, 245, 246) 0%, rgb(227, 234, 237) 37%, rgb(200, 215, 220) 100%);
+    background: linear-gradient(to bottom, rgb(242, 245, 246) 0%, rgb(227, 234, 237) 37%, rgb(200, 215, 220) 100%);
+    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#f2f5f6', endColorstr='#c8d7dc', GradientType=0);
+    padding: 20px;
+    border-radius: 4px;
+}
+
+button.buttons {
+    background-color: #111;
+    border-color: #110;
+}

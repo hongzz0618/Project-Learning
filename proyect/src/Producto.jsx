@@ -1,7 +1,7 @@
 import React from "react";
 import { Translate, withLocalize } from "react-localize-redux";
-import { Input, Row, Col, Container,Button, Form } from 'reactstrap';
-import Menu from './Menu';
+import { Button, Form, Input, Row, Col, Container } from 'reactstrap';
+import Menu from "./Menu.jsx";
 import "./css/estilosProducto.css";
 import {  Link, NavLink } from "react-router-dom";
 
@@ -199,12 +199,12 @@ let bbdd_search = this.state.publicacion_search.map(el => <>
                         <div className="field has-addons">
                             
                                 <Button size="sm" className="botonBuscar button is-info" type="submit">
-                                   Buscar
+                                   <Translate id="global.buscarProducto" />
 						        </Button>
                                 <Input 
                                     autoFocus
                                     onChange={this._handleChange}
-                         placeholder="Introduce para buscar un producto"
+                         
                                     type="text"
                                     value={this.state.inputMovie}
                                 />
@@ -217,7 +217,7 @@ let bbdd_search = this.state.publicacion_search.map(el => <>
                 <Row>
             
                 {(this.state.buscando) ?  bbdd_search : bbdd}
-                  {(this.state.publicacion_search.length>1 || this.state.buscando===false) ? "":<><h1>No existe el Producto introducido</h1></>}
+                  {(this.state.publicacion_search.length>1 || this.state.buscando===false) ? "":<><h1></h1></>}
                 
                 
                  </Row>

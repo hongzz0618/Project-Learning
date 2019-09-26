@@ -1,8 +1,9 @@
 import React from 'react';
-import { Container, Row, Col, Button, } from 'reactstrap';
+import { Button, } from 'reactstrap';
 import './estilosMain.css';
 import Logo from "./logoDeLaPagina/logoPagina.png";
-import { BrowserRouter, Link, Switch, Route, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { Translate } from 'react-localize-redux';
 
 
 
@@ -15,8 +16,9 @@ export default class paginaMain extends React.Component {
 
 		return (
 			<div className="tm-containerPrimero">
-				<Button className="botonesSesion" color="primary">Registrate</Button>
-				<Button className="botonesSesion margen" color="primary">Iniciar Sesion</Button>
+
+				<Button className="botonesSesion" color="primary"><Translate id="global.registrate" /></Button>
+				<Button className="botonesSesion margen" color="primary"><Translate id="global.iniciarSesion" /></Button>
 
 				<div className="tm-text-white tm-page-header-container">
 
@@ -28,10 +30,10 @@ export default class paginaMain extends React.Component {
 					{/* ENLACES BOTONES */}
 					<section class="tm-section tm-section-small">
 						<p>
-							Todos los cursos disponibles.
+						<Translate id="global.primerTextoCursos" />
 		                </p>
 
-						<Link to="/producto" className="button"><Button color="primary" size="lg">Cursos</Button>{' '}</Link>
+						<Link to="/producto" className="button"><Button color="primary" size="lg"><Translate id="global.botonCursos" /></Button>{' '}</Link>
 					</section>
 
 
@@ -39,22 +41,21 @@ export default class paginaMain extends React.Component {
 
 					<section className="tm-section tm-section-small">
 						<p>
-							Encuentra todo todo tipo de cursos disponibles, cerca tuyo.
-							Nuestro maps te lo pondra fácil.
-				</p>
+						<Translate id="global.segundoTextoMapa" />
+				        </p>
 
-						<Link to="/principal" className="button"><Button color="primary" size="lg">Cerca de ti</Button>{' '}</Link>
+						<Link to="/principal" className="button"><Button color="primary" size="lg"><Translate id="global.botonCerca" /></Button>{' '}</Link>
 
 					</section>
 					<hr />
 					{/* FOOTER DE LA PAGINA, SALE NUESTRA INFORMACION. */}
 					<section className="tm-section tm-section-small">
-						<h2 className="tm-section-header">Contactanos</h2>
+						<h2 className="tm-section-header"><Translate id="global.tituloContactanos" /></h2>
 						<p className="tm-mb-0">
-							Envia un correo a nuestro
-				<a href="mailto:info@example.com" class="emailNuestro">Email</a>
-							para cualquier duda.
-				</p>
+							<Translate id="global.textoCorreo" />
+							<a href="mailto:info@example.com" class="emailNuestro"><Translate id="global.email" /></a>
+							<Translate id="global.textoCorreoDos" />
+						</p>
 						<div className="iconosSociales">
 							<div className="tm-social-link-container">
 								<a href="" className="tm-social-link">
