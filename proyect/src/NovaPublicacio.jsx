@@ -6,6 +6,8 @@ import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import { Row, Col } from 'reactstrap';
 import axios from 'axios';
 import Mapa from './Mapa';
+// import {API} from './Config';
+
 /*multiIdiomas*/
 import { Translate, withLocalize } from "react-localize-redux";
 // ESTE CSS ES PARA EL INPUT DE ABAJO

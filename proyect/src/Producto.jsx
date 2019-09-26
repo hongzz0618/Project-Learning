@@ -6,7 +6,7 @@ import "./css/estilosProducto.css";
 import {  Link, NavLink } from "react-router-dom";
 
 
-
+// import {API} from './Config';
 
 const API = "http://localhost:5000/api";
 
