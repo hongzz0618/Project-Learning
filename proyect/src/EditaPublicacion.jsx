@@ -5,9 +5,9 @@ import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import { Row, Col } from 'reactstrap';
 import axios from 'axios';
 import Mapa from './Mapa';
-import "./estilosBotonesIdiomas.css";
+
 import "./formularioNuevaPublicacion.css";
-import "./estilosBotonesIdiomas.css";
+
 import { Translate, withLocalize } from "react-localize-redux";
 
 
@@ -235,12 +235,15 @@ tornar() {
                         </Col>
 
                         <Col sm="6">
-                            <FormGroup>
-                                <Label for="imgInput" className="textoPublicacion"><Translate id="global.imagenPublicacion" /><img className="imagenBotonEnviar" alt="no img" src="https://img.icons8.com/ultraviolet/40/000000/upload-to-ftp.png" /></Label>
+                            <FormGroup inline>
+                                <Label for="imgInput" className="textoPublicacion">
+                                    <Translate id="global.imagenPublicacion" />
+                                    <Input className="prueba" value={this.state.file}/><img className="imagenBotonEnviar" src="https://img.icons8.com/ultraviolet/40/000000/upload-to-ftp.png" />
+                                    </Label>
+                                
                                 <Input type="file" name="file" id="imgInput"
                                     onChange={this.onChangeHandler} className="botonEnviar" />
-                                <input type="hidden" value={this.state.file} />
-
+                                    
                             </FormGroup>
                         </Col>
 

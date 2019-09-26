@@ -129,7 +129,7 @@ class Datos_bbdd extends React.Component {
                 <Row className="cajaPrimariaRow">
 
                     <Col sm="12" lg="12">
-                        <div className="botonesAtrasEditarBorarDatos">
+                        <div className="botonesAtrasEditarBorrarDatos">
                             <Button style={{ marginBottom: 10 }} type="button" onClick={this.tornar} className='secodary' size='sm'><Translate id="global.volverDatos" /></Button>
 
                             <div className="botonesEditarBorrarDatos">
@@ -152,20 +152,44 @@ class Datos_bbdd extends React.Component {
 
                             {/* DATOS DE CONTACTO Y REDES SOCIALES. */}
                             <div>
-                                <img  alt="no img" src="https://img.icons8.com/color/50/000000/myspace.png" onClick={this.toggle}>{this.props.buttonLabel}</img>
-                                <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
-                                    <ModalHeader toggle={this.toggle}>Redes sociales</ModalHeader>
+                                <img className="contactoDatos" src="https://img.icons8.com/color/48/000000/my-topic.png" onClick={this.toggle}>{this.props.buttonLabel}</img>
+                                <Modal  isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
+                                    <ModalHeader className="modalDatos" toggle={this.toggle}>Redes sociales</ModalHeader>
                                     <ModalBody>
-                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                    </ModalBody>
+                                    <div className="redesSocialesModal">
+					                <a href="" class="tm-social-link">
+					                  <i class="fab fa-facebook"></i>
+					                </a>
+
+					                <a href="" class="tm-social-link">
+					                  <i class="fab fa-twitter"></i>
+					                </a>
+
+					                <a href="" class="tm-social-link">
+					                  <i class="fab fa-instagram"></i>
+					                </a>
+
+					                <a href="" class="tm-social-link">
+					                  <i class="fab fa-pinterest"></i>
+					                </a>
+                                    </div>
+                                    <div className="informacionUsuarioModal">
+                                        <h5>Usuario:</h5>
+                                        <h5>Telefono: </h5>
+                                        <h5>Email:  </h5>
+
+                                    </div>
+
+                                    </ModalBody>
                                     <ModalFooter>
-                                        <Button color="secondary" size="sm" onClick={this.toggle}>Aceptar</Button>{' '}
+                                        <Button color="primary" size="sm" onClick={this.toggle}>Aceptar</Button>{' '}
 
                                     </ModalFooter>
                                 </Modal>
                             </div>
                         </Card>
                     </Col>
+                    
 
 
 
@@ -190,10 +214,9 @@ class Datos_bbdd extends React.Component {
                             <Button type="submit" className="botonPublicarComentarioDatos" size='sm' color="secondary" >{<Translate id="global.publicarComentarioDatos" />}</Button>
 
                         </Form>
-                    </Col>
-                    <Col xs="6" xl="6">
-                    <Mapa datos={[this.state.publicacion]} altura='50vh' anchura='100%' />
-
+                    <div className="mapaDatos">
+                    <Mapa datos={[this.state.publicacion]} pruebaMapa="400px" altura='100%' anchura='100%' />
+                    </div>
                     </Col>
                 </Row>
             </Container>

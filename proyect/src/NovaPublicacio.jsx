@@ -205,8 +205,12 @@ class NovaPublicacio extends React.Component {
 
                         <Col sm="6">
                             <FormGroup>
-                                <Label htmlFor="imgInput"  className="textoPublicacion"><Translate id="global.imagenPublicacion" /><br/><img className="imagenBotonEnviar" alt="no img"  src="https://img.icons8.com/ultraviolet/40/000000/upload-to-ftp.png" /></Label>
-                                {/* EL BOTON ESTA INVISIBLE Y LA IMAGEN HACE COMO BOTON */}
+                            <Label for="imgInput" className="textoPublicacion">
+                                    <Translate id="global.imagenPublicacion" />
+                                    <img className="botonSubirImagen" src="https://img.icons8.com/ultraviolet/40/000000/upload-to-ftp.png" />
+                                    </Label>
+                                
+                                 {/* EL BOTON ESTA INVISIBLE Y LA IMAGEN HACE COMO BOTON */}
                                 <Input type="file" name="file" id="imgInput"
                                     onChange={this.onChangeHandler} className="botonEnviar"/>
                                    

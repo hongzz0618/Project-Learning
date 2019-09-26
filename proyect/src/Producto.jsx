@@ -131,10 +131,7 @@ if (this.state.inputMovie==="") {
 
             <Col xs="12" sm="6" md="4" xl="3">
             <div key={el.idPublicacion} className="cajaProducto" >
-
-                <div>
-                    <i style={ (this.state.desactivados.indexOf(el.idPublicacion)!==-1) ? {Color:"red"} : {Color:"grey"}} className="corazonProducto far fa-heart" onClick={() => this.insertLike(el.idPublicacion)} onChange={this.handleInputChange}>{el.numLikes}</i>
-                </div>
+            <i style={ (this.state.desactivados.indexOf(el.idPublicacion)!==-1) ? {color:"red"} : {color:"gray"}} className="corazonProducto fas fa-heart" onClick={() =>  this.insertLike(el.idPublicacion)} onChange={this.handleInputChange}>{el.numLikes}</i>
                 <NavLink className="navProducto" to={"/datos_bbdd/" + el.idPublicacion}>
                     
                         <div>
@@ -148,7 +145,7 @@ if (this.state.inputMovie==="") {
 
                         <form>
 
-                            {/* <p className="comentariosProducto"><img src="https://img.icons8.com/plasticine/100/000000/comments.png" width="40%" />({el.numComent})</p> */}
+                            <i className="comentariosDatos fas fa-comment-dots"  aria-hidden="true">({el.numComent})</i>
                         </form>
                     
 
@@ -157,8 +154,10 @@ if (this.state.inputMovie==="") {
             </Col>
 
         </>);
-
-let bbdd_search = this.state.publicacion_search.map(el => <><div key={el.idPublicacion} className="cajaProducto" >
+        
+let bbdd_search = this.state.publicacion_search.map(el => <>
+<Col xs="12" sm="6" md="4" xl="3">
+<div key={el.idPublicacion} className="cajaProducto" >
         <div>
             <i className="corazonProducto far fa-heart" onClick={() => this.insertLike(el.idPublicacion)} onChange={this.handleInputChange}>{el.numLikes}</i>
         </div>
@@ -181,41 +180,43 @@ let bbdd_search = this.state.publicacion_search.map(el => <><div key={el.idPubli
 
         </NavLink>
     </div>
+    </Col>
 
 </>);
 
         return (
             <>
+                
+                <Menu />
 
                 <Container fluid>
                 <Row>
-                <Col xs="auto" lg="auto">
+                <Col xs="6" lg="6">  
                 <Link className="botonProductoPublicar btn btn-secondary" to="/new_publicacion"><Translate id="global.nuevaPublicacion" /></Link>
                 </Col>
-                </Row>
-                <Row>
-              
-                    <form onSubmit={this._handleSubmit} className="medium-margin-bottom">
+                <Col xs="6" lg="6">
+                <Form  inline onSubmit={this._handleSubmit} className="formularioProducto medium-margin-bottom">
                         <div className="field has-addons">
-                            <div className="control">
-                                <Input size="lg" color="danger"
+                            
+                                <Button size="sm" className="botonBuscar button is-info" type="submit">
+                                   Buscar
+						        </Button>
+                                <Input 
                                     autoFocus
                                     onChange={this._handleChange}
                          placeholder="Introduce para buscar un producto"
                                     type="text"
                                     value={this.state.inputMovie}
                                 />
-                            </div>
-                            <div className="control">
-                                <button className="button is-info" type="submit">
-                                    Search
-						</button>
-                    
-                            </div>
+                          
+                            
                         </div>
-                    </form>
-          
-                 {(this.state.buscando) ?  bbdd_search : bbdd}
+                    </Form>
+                    </Col>
+                </Row>
+                <Row>
+            
+                {(this.state.buscando) ?  bbdd_search : bbdd}
                   {(this.state.publicacion_search.length>1 || this.state.buscando===false) ? "":<><h1>No existe el Producto introducido</h1></>}
                 
                 

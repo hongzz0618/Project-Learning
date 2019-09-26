@@ -1,6 +1,7 @@
 import React from "react";
 import Mapa from "./Mapa";
 import './paginaPrincipal.css';
+import Menu from "./Menu.jsx";
 
 
 
@@ -46,7 +47,7 @@ export default class Principal extends React.Component {
 
     return (
       <>  
-
+              <Menu />
 
               <Mapa pruebaMapa="100vh" datos={datos} altura='100%' anchura='100%' selector={false} coordenadas={this.coordenadas} />
 

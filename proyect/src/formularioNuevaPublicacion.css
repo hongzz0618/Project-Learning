@@ -1,8 +1,8 @@
 .formPublicacion{
 
     padding: 15%;
-    border-radius: 100%;
-    background-image: linear-gradient( #fdecff, #d2d0fe, #7f78d2, #6d0c74);
+
+   background-color: #1089ff;
 
 }
 .tituloPublicacion{
@@ -18,11 +18,16 @@
 }
 
 .imagenBotonEnviar{
-    cursor: pointer;
-    margin: 10%;
+    float: left;
+    margin-top: -18%;
 }
-.mapaNuevaPublicacion{
-height: 50px;
-width: 50px;
-background-color: #6d0c74;
+.prueba{
+    position: relative;
+    margin-top: 7px;
+    margin-left: 30%;
+}
+.botonSubirImagen{
+    position: absolute;
+    margin-top: 28px;
+    margin-left: -50px;
 }
