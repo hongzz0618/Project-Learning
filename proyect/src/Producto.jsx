@@ -157,7 +157,7 @@ if (this.state.inputMovie==="") {
         
 let bbdd_search = this.state.publicacion_search.map(el => <>
 <Col xs="12" sm="6" md="4" xl="3">
-<div key={el.idPublicacion} className="cajaProducto" >
+<div key={el.nombre_ES} className="cajaProducto" >
         <div>
             <i className="corazonProducto far fa-heart" onClick={() => this.insertLike(el.idPublicacion)} onChange={this.handleInputChange}>{el.numLikes}</i>
         </div>
